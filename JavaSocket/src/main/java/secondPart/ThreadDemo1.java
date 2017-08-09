@@ -27,8 +27,8 @@ public class ThreadDemo1 {
 class HasSelfPrivateNum {
 
 	private int num = 0;
-
-	public synchronized void addI(String string) {
+	public void addI(String string) {
+//		int num = 0;
 		try {
 			if (string.equals("a")) {
 				num = 100;
