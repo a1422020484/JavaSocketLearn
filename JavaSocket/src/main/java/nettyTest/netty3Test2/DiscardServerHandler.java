@@ -9,8 +9,8 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
-//		((ByteBuf) msg).release();
-//		---------------------------
+		// ((ByteBuf) msg).release();
+		// ---------------------------
 //		ByteBuf in = (ByteBuf) msg;
 //		try {
 //			while (in.isReadable()) {
@@ -20,10 +20,10 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 //		} finally {
 //			ReferenceCountUtil.release(msg);
 //		}
-//		---------------------------
-//		ctx.write(msg);
-//		ctx.flush();
-//		---------------------------
+		// ---------------------------
+		 ctx.write(msg);
+		 ctx.flush();
+		// ---------------------------
 	}
 
 	@Override

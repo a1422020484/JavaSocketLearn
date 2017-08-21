@@ -32,7 +32,7 @@ public class DiscardServer {
 			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new ChannelInitializer<SocketChannel>() {
 				@Override
 				public void initChannel(SocketChannel ch) throws Exception {
-					ch.pipeline().addLast(new DiscardServerHandler());
+					ch.pipeline().addLast(new TimeServerHandler());
 				}
 			}).option(ChannelOption.SO_BACKLOG, 128).childOption(ChannelOption.SO_KEEPALIVE, true);
 			ChannelFuture f = b.bind(port).sync();
