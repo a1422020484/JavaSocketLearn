@@ -1,6 +1,8 @@
 package nettyTest.netty3Test.bufferbufTest;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
@@ -29,11 +31,12 @@ public class ServerTest {
 				@Override
 				protected void initChannel(SocketChannel ch) throws Exception {
 					ChannelPipeline p = ch.pipeline();
-					p.addLast(new LineBasedFrameDecoder(2048));// 粘包
+					// p.addLast(new LineBasedFrameDecoder(2048));// 粘包
 					// 粘包,自定义分隔符
-					 p.addLast(new DelimiterBasedFrameDecoder(8192,
-					 Delimiters.lineDelimiter()));
-					p.addLast(new FixedLengthFrameDecoder(23)); // 分包
+					// p.addLast(new DelimiterBasedFrameDecoder(8192,
+					// Delimiters.lineDelimiter()));
+					p.addLast(new DelimiterBasedFrameDecoder(8192, new ByteBuf[] { Unpooled.wrappedBuffer(new byte[] { 'i' }) }));
+					// p.addLast(new FixedLengthFrameDecoder(23)); // 分包
 					p.addLast(new StringDecoder());
 					p.addLast(new ServerHandler());
 				}

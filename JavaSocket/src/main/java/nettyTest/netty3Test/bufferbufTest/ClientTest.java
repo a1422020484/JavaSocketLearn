@@ -21,7 +21,7 @@ public class ClientTest {
 				protected void initChannel(SocketChannel ch) throws Exception {
 					ChannelPipeline p = ch.pipeline();
 					p.addLast(new StringDecoder());
-					p.addLast(new ClientHandler2());
+					p.addLast(new ClientHandler());
 				}
 			});
 			b.connect("127.0.0.1", 8800).sync().channel().closeFuture().sync();
