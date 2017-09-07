@@ -42,9 +42,9 @@ class MyService2 {
 	public void testMethodB() {
 		try {
 			lock.lock();
-			System.out.println("MethodA begin ThreadName = " + Thread.currentThread().getName() + " Time = " + System.currentTimeMillis());
+			System.out.println("MethodB begin ThreadName = " + Thread.currentThread().getName() + " Time = " + System.currentTimeMillis());
 			Thread.sleep(5000);
-			System.out.println("MethodA end   ThreadName = " + Thread.currentThread().getName() + " Time = " + System.currentTimeMillis());
+			System.out.println("MethodB end   ThreadName = " + Thread.currentThread().getName() + " Time = " + System.currentTimeMillis());
 			lock.unlock();
 		} catch (InterruptedException e) {
 			e.printStackTrace();

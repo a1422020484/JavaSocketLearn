@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author yangxp
  * @date 2017年8月10日 上午9:13:22
  *       <p>
- *       展现lock的同步效果
+ *       展现lock的同步效果，一个线程打印完了，其他线程才可以继续打印。
  */
 public class LockDemo1 {
 

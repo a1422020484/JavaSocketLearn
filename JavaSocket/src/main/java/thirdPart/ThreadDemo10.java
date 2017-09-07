@@ -6,6 +6,7 @@ public class ThreadDemo10 {
 
 	public static void main(String[] args) {
 		try {
+			System.out.println("初始化值： === " + Tools10.t1.get());
 			for (int i = 0; i < 10; i++) {
 				System.out.println("main 线程中取值 ==== " + Tools10.t1.get());
 				Thread.sleep(100);
