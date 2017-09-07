@@ -3,9 +3,8 @@ package thirdPart;
 /**
  * @author yangxp
  * @date 2017年8月8日 下午3:36:14
- * <p>
- * 必须执行完notify()方法所在的同步synchroized代码块后才释放锁
- * 方法wait() 锁释放 与 notify()锁不释放
+ *       <p>
+ *       必须执行完notify()方法所在的同步synchroized代码块后才释放锁 方法wait() 锁释放 与 notify()锁不释放
  */
 public class ThreadDemo3 {
 
@@ -19,7 +18,7 @@ public class ThreadDemo3 {
 		threadDemo3TestB.start();
 		ThreadDemo3TestC threadDemo3TestC = new ThreadDemo3TestC(lock);
 		threadDemo3TestC.setName("B");
-		threadDemo3TestC.start();
+//		threadDemo3TestC.start();
 	}
 
 }
@@ -36,8 +35,8 @@ class Service3 {
 			e.printStackTrace();
 		}
 	}
-	
-	public void synNotifyMethod(Object lock){
+
+	public void synNotifyMethod(Object lock) {
 		try {
 			synchronized (lock) {
 				System.out.println("begin notify()" + Thread.currentThread().getName());
@@ -62,7 +61,7 @@ class ThreadDemo3TestA extends Thread {
 	@Override
 	public void run() {
 		Service3 service3 = new Service3();
-		service3.testMethod(lock);
+		service3.synNotifyMethod(lock);
 	}
 }
 
@@ -77,17 +76,18 @@ class ThreadDemo3TestB extends Thread {
 	@Override
 	public void run() {
 		Service3 service3 = new Service3();
-		service3.synNotifyMethod(lock);
+		service3.testMethod(lock);
 	}
 }
+
 class ThreadDemo3TestC extends Thread {
 	private Object lock;
-	
+
 	public ThreadDemo3TestC(Object lock) {
 		super();
 		this.lock = lock;
 	}
-	
+
 	@Override
 	public void run() {
 		Service3 service3 = new Service3();
