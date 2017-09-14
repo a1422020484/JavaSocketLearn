@@ -25,6 +25,7 @@ public class TimerTest2 {
 			System.out.println("字符串时间：" + dateRef.toLocaleString() + " 当前时间：" + new Date().toLocaleString());
 //			timer.schedule(task2, dateRef, 1000);
 			timer.scheduleAtFixedRate(task2, dateRef, 1000);
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
