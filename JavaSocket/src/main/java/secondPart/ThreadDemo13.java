@@ -16,7 +16,6 @@ public class ThreadDemo13 {
 		});
 		Thread b = new Thread(new Runnable() {
 
-			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				inner.play2(1, "BB");
