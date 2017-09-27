@@ -31,11 +31,13 @@ public class ServerTest {
 				@Override
 				protected void initChannel(SocketChannel ch) throws Exception {
 					ChannelPipeline p = ch.pipeline();
-					// p.addLast(new LineBasedFrameDecoder(2048));// 粘包
+					p.addLast(new LineBasedFrameDecoder(2048));// 粘包
 					// 粘包,自定义分隔符
 					// p.addLast(new DelimiterBasedFrameDecoder(8192,
 					// Delimiters.lineDelimiter()));
-					p.addLast(new DelimiterBasedFrameDecoder(8192, new ByteBuf[] { Unpooled.wrappedBuffer(new byte[] { 'i' }) }));
+					// p.addLast(new DelimiterBasedFrameDecoder(8192, new
+					// ByteBuf[] { Unpooled.wrappedBuffer(new byte[] { 'i' })
+					// }));
 					// p.addLast(new FixedLengthFrameDecoder(23)); // 分包
 					p.addLast(new StringDecoder());
 					p.addLast(new ServerHandler());

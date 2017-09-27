@@ -14,7 +14,7 @@ import org.jboss.netty.handler.ssl.util.SelfSignedCertificate;
 public class DiscardServer {
 
 	static final boolean SSL = System.getProperty("ssl") != null;
-	static final int PORT = Integer.parseInt(System.getProperty("port", "8009"));
+	static final int PORT = Integer.parseInt(System.getProperty("port", "8899"));
 
 	public static void main(String[] args) throws Exception {
 		final SslContext sslCtx;
