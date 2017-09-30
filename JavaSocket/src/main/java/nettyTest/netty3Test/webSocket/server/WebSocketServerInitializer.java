@@ -23,6 +23,7 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.ssl.SslContext;
+import io.netty.handler.timeout.ReadTimeoutHandler;
 
 /**
  */
@@ -43,6 +44,8 @@ public class WebSocketServerInitializer extends ChannelInitializer<SocketChannel
 //            pipeline.addLast(sslCtx.newHandler(ch.alloc()));
 //        }
         pipeline.addLast(sslCtx.newHandler(ch.alloc()));
+//      5秒不发送数据之后断线
+        pipeline.addLast(new ReadTimeoutHandler(5));
         pipeline.addLast(new HttpServerCodec());
         pipeline.addLast(new HttpObjectAggregator(65536));
         pipeline.addLast(new WebSocketServerCompressionHandler());

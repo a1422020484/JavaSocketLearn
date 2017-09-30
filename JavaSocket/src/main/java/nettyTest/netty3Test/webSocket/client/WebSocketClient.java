@@ -47,7 +47,7 @@ import java.net.URI;
  * <p>
  * In order to run this example you need a compatible WebSocket server.
  * Therefore you can either start the WebSocket server from the examples
- * by running {@link nettyTest.netty3Test.webSocket.server.example.http.websocketx.server.WebSocketServer}
+ * by running {@link nettyTest.netty3Test.webSocket.server.ChatServer.http.websocketx.server.WebSocketServer}
  * or connect to an existing WebSocket server such as
  * <a href="http://www.websocket.org/echo.html">ws://echo.websocket.org</a>.
  * <p>

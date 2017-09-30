@@ -22,6 +22,7 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.ssl.SslHandler;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -48,9 +49,9 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
 			@Override
 			public void operationComplete(Future<Channel> future) throws Exception {
 				
-				ctx.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
-				ctx.writeAndFlush(new TextWebSocketFrame("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n"));
-
+//				ctx.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
+//				ctx.writeAndFlush(new TextWebSocketFrame("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n"));
+				channels.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
 				channels.add(ctx.channel());
 			}
 		});
@@ -80,6 +81,15 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
             throw new UnsupportedOperationException(message);
         }
     }
+    
+	@Override
+	public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+		if (evt == WebSocketServerProtocolHandler.ServerHandshakeStateEvent.HANDSHAKE_COMPLETE) {
+			channels.writeAndFlush(new TextWebSocketFrame("Client " + ctx.channel() + " joined"));
+		} else {
+			super.userEventTriggered(ctx, evt);
+		}
+	}
     
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
