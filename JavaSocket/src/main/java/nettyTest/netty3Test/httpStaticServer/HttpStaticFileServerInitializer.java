@@ -13,44 +13,35 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package nettyTest.netty3Test.webSocket.server;
+package nettyTest.netty3Test.httpStaticServer;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.http.HttpContentCompressor;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
-import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.ssl.SslContext;
-import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.handler.stream.ChunkedWriteHandler;
 
-/**
- */
-public class WebSocketServerInitializer extends ChannelInitializer<SocketChannel> {
-
-    private static final String WEBSOCKET_PATH = "/websocket";
+public class HttpStaticFileServerInitializer extends ChannelInitializer<SocketChannel> {
 
     private final SslContext sslCtx;
 
-    public WebSocketServerInitializer(SslContext sslCtx) {
+    public HttpStaticFileServerInitializer(SslContext sslCtx) {
         this.sslCtx = sslCtx;
     }
 
     @Override
-    public void initChannel(SocketChannel ch) throws Exception {
+    public void initChannel(SocketChannel ch) {
         ChannelPipeline pipeline = ch.pipeline();
-//        if (sslCtx != null) {
-//            pipeline.addLast(sslCtx.newHandler(ch.alloc()));
-//        }
-        pipeline.addLast(sslCtx.newHandler(ch.alloc()));
-//      5秒不发送数据之后断线
-//        pipeline.addLast(new ReadTimeoutHandler(5));
+        if (sslCtx != null) {
+            pipeline.addLast(sslCtx.newHandler(ch.alloc()));
+        }
         pipeline.addLast(new HttpServerCodec());
         pipeline.addLast(new HttpObjectAggregator(65536));
-        pipeline.addLast(new WebSocketServerCompressionHandler());
-        pipeline.addLast(new WebSocketServerProtocolHandler(WEBSOCKET_PATH, null, true));
-        pipeline.addLast(new WebSocketIndexPageHandler(WEBSOCKET_PATH));
-        pipeline.addLast(new WebSocketFrameHandler());
+        pipeline.addLast(new HttpContentCompressor());
+        pipeline.addLast(new ChunkedWriteHandler());
+        pipeline.addLast(new HttpStaticFileServerHandler());
     }
 }
