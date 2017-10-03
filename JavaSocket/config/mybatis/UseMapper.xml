@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spring.myBatis.mapper.UserMapper">
+	<select id="getUsername" resultType="string">
+		select username from t_user2 t where t.userid = '24'
+	</select>
+
+	<insert id="saveUser" parameterType="java.util.Map">
+		insert into t_user2
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="address != null">
+				ADDRESS,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="address != null">
+				#{address,jdbcType=OTHER},
+			</if>
+		</trim>
+	</insert>
+</mapper>

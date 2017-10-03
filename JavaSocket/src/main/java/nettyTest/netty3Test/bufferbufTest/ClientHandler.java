@@ -2,6 +2,7 @@ package nettyTest.netty3Test.bufferbufTest;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -11,7 +12,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
 	public ClientHandler() {
 		req = ("In this chapter you general, we recommend Java Concurrency in Practice by Brian Goetz. His book w" + "ill give We’ve reached an exciting point—in the next chapter we’ll discuss bootstrapping, the process " + "of configuring and connecting all of Netty’s components to bring your learned about threading models in ge" + "neral and Netty’s threading model in particular, whose performance and consistency advantages we discuss" + "ed in detail In this chapter you general, we recommend Java Concurrency in Practice by Brian Goetz. Hi" + "s book will give We’ve reached an exciting point—in the next chapter we’ll discuss bootstrapping, the" + " process of configuring and connecting all of Netty’s components to bring your learned about threading "
-				+ "models in general and Netty’s threading model in particular, whose performance and consistency advantag" + "es we discussed in detailIn this chapter you general, we recommend Java Concurrency in Practice by Bri" + "an Goetz. His book will give We’ve reached an exciting point—in the next chapter;the counter is: 1 2222" ).getBytes();
+				+ "models in general and Netty’s threading model in particular, whose performance and consistency advantag" + "es we discussed in detailIn this chapter you general, we recommend Java Concurrency in Practice by Bri" + "an Goetz. His book will give We’ve reached an exciting point—in the next chapter;the counter is: 1 2222" + System.getProperty("line.separator")).getBytes();
 	}
 
 	@Override
@@ -28,12 +29,23 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 		ctx.writeAndFlush(message);
 		message = Unpooled.buffer(req.length);
 		message.writeBytes(req);
-		ctx.writeAndFlush(message);
+		// 验证future
+		ChannelFuture future = ctx.writeAndFlush(message);
+		if (future.isSuccess()) {
+			message = Unpooled.buffer("hello".length());
+			message.writeBytes(("hello" + System.getProperty("line.separator")).getBytes());
+			ctx.writeAndFlush(message);
+		}
 	}
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		// TODO Auto-generated method stub
 		super.channelRead(ctx, msg);
+	}
+
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+		cause.printStackTrace();
 	}
 }

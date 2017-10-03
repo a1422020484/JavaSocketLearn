@@ -19,7 +19,7 @@ public class NIOClient {
 
 	private static ByteBuffer receiveBuffer = ByteBuffer.allocate(blockSize);
 
-	private final static InetSocketAddress serverAddress = new InetSocketAddress("127.0.0.1", 10280);
+	private final static InetSocketAddress serverAddress = new InetSocketAddress("127.0.0.1", 8888);
 
 	public static void main(String[] args) throws IOException {
 		SocketChannel socketChannel = SocketChannel.open();
