@@ -17,9 +17,29 @@
 		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd ">
 
 	<context:component-scan base-package="spring"></context:component-scan>
-	
-	<context:property-placeholder location="classpath:./db.properties" />
 
+	<context:property-placeholder location="classpath:./db.properties" />
+	<!--注解映射器 --> <!--注解适配器 -->
+	<mvc:annotation-driven />
+
+	<!-- 视图解析器 解析jsp解析，默认使用jstl标签，classpath下的得有jstl的包 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<!-- 配置jsp路径的前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<!-- 配置jsp路径的后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- <bean name="/hello" class="swm.helloworld.HelloWorldController"/> -->
+	<!-- 静态资源解析 包括 ：js、css、img、.. -->
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/plugins/" mapping="/plugins/**" />
+	<mvc:resources location="/images/" mapping="/images/**" />
+	<mvc:resources location="/res/" mapping="/res/**" />
+	<mvc:resources location="/swagger-editor/" mapping="/swagger-editor/**" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">

@@ -12,6 +12,8 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import nettyTest.netty3Test.webSocket.server.WebSocketServer;
+
 public class MybatisDemo {
 
 	private static ApplicationContext context;
@@ -19,6 +21,7 @@ public class MybatisDemo {
 	public static void main(String[] args) throws Exception {
 		inistrancedSpring();
 		inistrancedMybatis();
+		WebSocketServer.inistrancedNetty();
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
 		mybatisMgr.queryName();
 	}

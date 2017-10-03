@@ -38,6 +38,11 @@ import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+
 /**
  * Outputs index page content.
  */
@@ -74,7 +79,8 @@ public class WebSocketIndexPageHandler extends SimpleChannelInboundHandler<FullH
 
             sendHttpResponse(ctx, req, res);
         } else {
-            sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HTTP_1_1, NOT_FOUND));
+        	handleRequestInternal();
+//            sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HTTP_1_1, NOT_FOUND));
         }
     }
 
@@ -108,4 +114,9 @@ public class WebSocketIndexPageHandler extends SimpleChannelInboundHandler<FullH
         }
         return protocol + "://" + req.headers().get(HttpHeaderNames.HOST) + path;
     }
+    
+	protected static String handleRequestInternal() throws Exception {
+		// TODO Auto-generated method stub
+		return "forward:/user/query";
+	}
 }

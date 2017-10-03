@@ -15,6 +15,8 @@
  */
 package nettyTest.netty3Test.webSocket.server;
 
+import java.security.cert.CertificateException;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
@@ -31,9 +33,9 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
  * 
  * http://localhost:8080/websocket
  * 
- * Open your browser at <a
- * href="http://localhost:8080/">http://localhost:8080/</a>, then the demo page
- * will be loaded and a Web Socket connection will be made automatically.
+ * Open your browser at
+ * <a href="http://localhost:8080/">http://localhost:8080/</a>, then the demo
+ * page will be loaded and a Web Socket connection will be made automatically.
  * 
  * This server illustrates support for the different web socket specification
  * versions and will work with:
@@ -53,14 +55,18 @@ public final class WebSocketServer {
 	static final int PORT = Integer.parseInt(System.getProperty("port", SSL ? "8443" : "8080"));
 
 	public static void main(String[] args) throws Exception {
+		inistrancedNetty();
+	}
+
+	public static void inistrancedNetty() throws Exception {
 		// Configure SSL.
 		final SslContext sslCtx;
-//		if (SSL) {
-			SelfSignedCertificate ssc = new SelfSignedCertificate();
-			sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
-//		} else {
-//			sslCtx = null;
-//		}
+		// if (SSL) {
+		SelfSignedCertificate ssc = new SelfSignedCertificate();
+		sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+		// } else {
+		// sslCtx = null;
+		// }
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
@@ -76,5 +82,6 @@ public final class WebSocketServer {
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
 		}
+
 	}
 }

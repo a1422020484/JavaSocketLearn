@@ -164,6 +164,14 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.7</version>
 		</dependency>
+		<!-- servlet -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 </project>
