@@ -7,12 +7,12 @@ import spring.myBatis.mapper.UserMapper;
 
 @Controller
 public class MybatisMgr {
-	
+
 	@Autowired
 	private UserMapper userMapper;
 
 	public void queryName() {
 		System.out.println(userMapper.getUsername());
-
+		System.out.println("----------------------------------");
 	};
 }

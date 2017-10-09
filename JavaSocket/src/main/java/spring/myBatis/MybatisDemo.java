@@ -21,9 +21,9 @@ public class MybatisDemo {
 	public static void main(String[] args) throws Exception {
 		inistrancedSpring();
 		inistrancedMybatis();
-		WebSocketServer.inistrancedNetty();
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
 		mybatisMgr.queryName();
+		WebSocketServer.inistrancedNetty();
 	}
 
 	public static void inistrancedSpring() {
