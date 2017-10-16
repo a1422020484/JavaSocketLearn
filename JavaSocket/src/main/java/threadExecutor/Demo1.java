@@ -10,11 +10,15 @@ public class Demo1 {
 	public static void main(String[] args) {
 		// Demo1.doCachedThreadPool();
 		// Demo1.doFixedThreadPool();
-		Demo1.doScheduledThreadPool();
+		// Demo1.doScheduledThreadPool();
 		// Demo1.doSingleThreadExecutor();
+		submitTest();
 		System.out.println("after main");
 	}
 
+	/**
+	 * 可变长度线程池
+	 */
 	public static void doCachedThreadPool() {
 		ExecutorService cachedExecutorService = Executors.newCachedThreadPool();
 		for (int i = 0; i < 10; i++) {
@@ -35,6 +39,9 @@ public class Demo1 {
 		cachedExecutorService.shutdown();
 	}
 
+	/**
+	 * 创建一个固定个数的线程池
+	 */
 	public static void doFixedThreadPool() {
 		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
 		for (int i = 0; i < 10; i++) {
@@ -53,6 +60,9 @@ public class Demo1 {
 		fixedThreadPool.shutdown();
 	}
 
+	/**
+	 * 创建一个带延迟的线程池
+	 */
 	public static void doScheduledThreadPool() {
 		ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
 		scheduledExecutorService.schedule(new Runnable() {
@@ -69,6 +79,9 @@ public class Demo1 {
 		}, 1, 1, TimeUnit.SECONDS);
 	}
 
+	/**
+	 * 创建一个单线程线程池
+	 */
 	public static void doSingleThreadExecutor() {
 		ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
 		for (int i = 0; i < 10; i++) {
@@ -84,5 +97,16 @@ public class Demo1 {
 				}
 			});
 		}
+	}
+
+	public static void submitTest() {
+		ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+		singleThreadExecutor.submit(new Runnable() {
+
+			@Override
+			public void run() {
+				doScheduledThreadPool();
+			}
+		});
 	}
 }
