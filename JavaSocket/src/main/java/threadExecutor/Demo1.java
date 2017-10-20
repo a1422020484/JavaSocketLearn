@@ -1,7 +1,10 @@
 package threadExecutor;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -12,8 +15,9 @@ public class Demo1 {
 		// Demo1.doFixedThreadPool();
 		// Demo1.doScheduledThreadPool();
 		// Demo1.doSingleThreadExecutor();
-		submitTest();
-		System.out.println("after main");
+		// submitTest();
+		submitCallableTest();
+		System.out.println("after main ");
 	}
 
 	/**
@@ -108,5 +112,23 @@ public class Demo1 {
 				doScheduledThreadPool();
 			}
 		});
+	}
+
+	public static void submitCallableTest() {
+		ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+		Future<?> future = singleThreadExecutor.submit(new Callable<String>() {
+			@Override
+			public String call() throws Exception {
+				return "tt";
+			}
+
+		});
+		try {
+			String statu = (String) future.get(10, TimeUnit.SECONDS);
+			System.out.println(statu);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
