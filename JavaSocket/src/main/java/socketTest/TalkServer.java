@@ -11,7 +11,7 @@ public class TalkServer {
 		try {
 			ServerSocket server = null;
 			try {
-				server = new ServerSocket(4700);
+				server = new ServerSocket(8000);
 				// 创建一个ServerSocket在端口4700监听客户请求
 			} catch (Exception e) {
 				System.out.println("can not listen to:" + e);
