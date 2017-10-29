@@ -27,7 +27,7 @@ public class CodeClient {
 
 		});
 		try {
-			bootstrap.connect("127.0.0.1", 8023).sync();
+			bootstrap.connect("127.0.0.1", 7397).sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
