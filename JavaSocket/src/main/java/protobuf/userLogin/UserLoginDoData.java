@@ -10,8 +10,8 @@ public class UserLoginDoData {
 	
 	public static byte[] sendData(){
 		UserLogin.TestInfo.Builder builder = UserLogin.TestInfo.newBuilder();
-		builder.setNum(114);
-		builder.setTest("ok");
+		builder.setNum(666666);
+		builder.setTest("okjaskdf");
 		UserLogin.TestInfo info = builder.build();
 		byte[] result = info.toByteArray();
 		return result;

@@ -1,6 +1,6 @@
 package protobuf;
 
-import protobuf.userLogin.UserLogin;
+import protobuf.userLogin.UserLogin1;
 
 public class ProtobufFromSeriaizlable {
 
@@ -15,7 +15,7 @@ public class ProtobufFromSeriaizlable {
 
 	public static void toSeriaizlable(byte[] result) {
 		try {
-			UserLogin.TestInfo msg = UserLogin.TestInfo.parseFrom(result);
+			UserLogin1.TestInfo msg = UserLogin1.TestInfo.parseFrom(result);
 
 			System.out.println("number == " + msg.getNum() + " test == " + msg.getTest());
 		} catch (Exception ex) {

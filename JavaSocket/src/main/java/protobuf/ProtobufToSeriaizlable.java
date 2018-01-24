@@ -1,6 +1,6 @@
 package protobuf;
 
-import protobuf.userLogin.UserLogin;
+import protobuf.userLogin.UserLogin1;
 
 public class ProtobufToSeriaizlable {
 
@@ -11,10 +11,10 @@ public class ProtobufToSeriaizlable {
 //		FirstProtobuf.testBuf info = builder.build();
 //
 //		byte[] result = info.toByteArray();
-		UserLogin.TestInfo.Builder builder = UserLogin.TestInfo.newBuilder();
+		UserLogin1.TestInfo.Builder builder = UserLogin1.TestInfo.newBuilder();
 		builder.setNum(114);
 		builder.setTest("ok");
-		UserLogin.TestInfo info = builder.build();
+		UserLogin1.TestInfo info = builder.build();
 		byte[] result = info.toByteArray();
 		System.out.println(result);
 
