@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" default="info2">
+
+	<target name="info1" description="我是氢气球吗">
+		<echo>Hello World - Welcome to Apache Ant!</echo>
+	</target>
+	<!--ant 属性的演示-->
+	<property name="sitename" value="www.tutorialspoint.com" />
+	<target name="info2">
+		<echo>Apache Ant version is ${ant.version} - You are at ${sitename} - basedir is ${basedir} 
+			- bulid file url == ${ant.file} 
+			- ant.core.lib == ${ant.core.lib}
+			- output.dir == ${output.dir}</echo>
+	</target>
+	<!--ant 外部额外的引用属性文件的演示 -->
+	<property file="build.properties" />
+	<target name="info3">
+		<echo>Hello World - Welcome to Apache Ant! form properties sitename is ${sitename}</echo>
+	</target>
+
+	<target name="info4">
+		<echo>它被当作一个文件集，用来包括或移除匹配某种模式的文件</echo>
+		<fileset dir="${src}" casesensitive="yes">
+			<include name="**/*.java" />
+			<exclude name="**/*Sub*" />
+		</fileset>
+		<echo>重用</echo>
+		<fileset dir="${src}" casesensitive="yes">
+			<patternset refid="java.files.without.stubs" />
+		</fileset>
+		<patternset id="java.files.without.stubs">
+			<include name="src/**/*.java" />
+			<exclude name="src/**/*Stub*" />
+		</patternset>
+	</target>
+	<echo>src.dir is ${src}</echo>
+	<target name="generate-javadoc">
+		<javadoc packagenames="firstPart.*" sourcefiles="firstPart.Test" destdir="doc" version="true" windowtitle="Fax Application">
+
+			<doctitle>
+				<![CDATA[= Fax Application =]]>
+			</doctitle>
+
+			<bottom>
+				<![CDATA[Copyright © 2011. All Rights Reserved.]]>
+			</bottom>
+
+			<group title="util" packages="firstPart.*" />
+		</javadoc>
+
+		<echo message="java doc has been generated!" />
+	</target>
+</project>
