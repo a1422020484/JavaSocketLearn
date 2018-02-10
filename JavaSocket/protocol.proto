@@ -1,0 +1,31 @@
+syntax = "proto2";
+
+option java_package = "proto";
+option java_outer_classname = "Protocol";
+option java_multiple_files = true;
+package protocol;
+ 
+// ===============================================
+// ==================口袋妖怪======================
+// ===============================================
+
+// 错误消息,当逻辑执行异常时返回此错误消息,协议号与请求协议号相同
+//错误码: 0:常规错误, -1000:账号被禁止 -10000:登陆验证码过期
+message ErrSC {
+    optional string msg = 1; // 消息内容
+    optional int32 code = 2; // 消息码
+}
+
+message Friend {
+	required int32 playerId = 1; // 用户id
+    required string name = 2; // 姓名
+    optional string iconId = 3; // 图标
+	optional int32 level = 4; // 级别
+    optional bool isWin = 5; // 是否胜利
+	repeated ItemMsg itemMsg = 6;//奖励列表
+}
+
+message ItemMsg{
+	optional int32 itemId = 1; // 物品id
+	optional int32 itemCount = 2; // 物品个数
+}
