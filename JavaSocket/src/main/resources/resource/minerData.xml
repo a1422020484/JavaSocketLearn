@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<list>
+  <minerData>
+    <minerId>20000001</minerId>
+    <minerShow>171000801</minerShow>
+    <minerWork></minerWork>
+    <minerEffect>0</minerEffect>
+    <minerPrice>0</minerPrice>
+    <minerPriceId>100000002</minerPriceId>
+  </minerData>
+  <minerData>
+    <minerId>20000002</minerId>
+    <minerShow>171001301</minerShow>
+    <minerWork></minerWork>
+    <minerEffect>500</minerEffect>
+    <minerPrice>100</minerPrice>
+    <minerPriceId>100000002</minerPriceId>
+  </minerData>
+  <minerData>
+    <minerId>20000003</minerId>
+    <minerShow>171008401</minerShow>
+    <minerWork></minerWork>
+    <minerEffect>1000</minerEffect>
+    <minerPrice>200</minerPrice>
+    <minerPriceId>100000002</minerPriceId>
+  </minerData>
+</list>

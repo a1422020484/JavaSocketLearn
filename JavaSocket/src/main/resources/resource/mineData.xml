@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<list>
+  <mineData>
+    <mineId>3000001</mineId>
+    <mineType>1</mineType>
+    <mineRes></mineRes>
+    <openLv>1</openLv>
+  </mineData>
+  <mineData>
+    <mineId>3000002</mineId>
+    <mineType>2</mineType>
+    <mineRes></mineRes>
+    <openLv>30</openLv>
+  </mineData>
+  <mineData>
+    <mineId>3000003</mineId>
+    <mineType>3</mineType>
+    <mineRes></mineRes>
+    <openLv>50</openLv>
+  </mineData>
+</list>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://www.springframework.org/schema/jms" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd 
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd ">
+
+	<context:property-placeholder
+		ignore-unresolvable="true" file-encoding="UTF-8" location="classpath:config.properties" />
+	<context:annotation-config />
+
+	<context:property-placeholder location="classpath:./db.properties" />
+	<context:annotation-config />
+
+	<bean
+		class="net.paoding.rose.jade.context.spring.JadeBeanFactoryPostProcessor" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="30" />
+		<property name="maxIdle" value="5" />
+	</bean>
+
+	<!-- 事务管理器 对mybatis操作数据库事务控制，spring使用jdbc的事务控制类 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 数据库连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 加载mybatis的全局配置文件 -->
+		<property name="configLocation" value="classpath:sqlMapConfig.xml" />
+		<property name="mapperLocations" value="classpath*:*Mapper.xml" />
+	</bean>
+	<!-- mapper扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+		<property name="basePackage" value="spring.myBatis.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	<!-- <bean class="net.paoding.rose.jade.context.spring.JadeBeanFactoryPostProcessor" 
+		/> <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close"> <property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+		在config.properties配置 <property name="url" value="${ds.url}" /> <property 
+		name="username" value="${ds.username}" /> <property name="password" value="${ds.password}" 
+		/> <property name="initialSize" value="64" /> <property name="maxActive" 
+		value="256" /> <property name="maxIdle" value="128" /> <property name="minIdle" 
+		value="64" /> <property name="maxWait" value="3000" /> <property name="testWhileIdle" 
+		value="true" /> <property name="timeBetweenEvictionRunsMillis" value="27000" 
+		/> <property name="minEvictableIdleTimeMillis" value="28000" /> <property 
+		name="logAbandoned" value="true" /> <property name="removeAbandoned" value="true" 
+		/> <property name="removeAbandonedTimeout" value="180" /> <property name="validationQuery" 
+		value="SELECT 1" /> </bean> -->
+
+</beans>
+
+
+
+<!-- #初始化连接烽 jade.cfg.dbcp.initialSize=16 #最大连接数量 jade.cfg.dbcp.maxActive=64 
+	#最大空闲连接 jade.cfg.dbcp.maxIdle=32 #最小空闲连接 jade.cfg.dbcp.minIdle=16 #超时等待时间(毫秒) 
+	jade.cfg.dbcp.maxWait=500 #空闲时是否验证, 若不通过断掉连接, 前提是空闲对象回收器开启状态 jade.cfg.dbcp.testWhileIdle=true 
+	#以毫秒表示空闲对象回收器由运行间隔.值为负数时表示不运行空闲对象回收器,若需要回收,该值最好小于 minEvictableIdleTimeMillis值 
+	jade.cfg.dbcp.timeBetweenEvictionRunsMillis=27000 #被空闲对象回收器回收前在池中保持空闲状态的最小时间,毫秒表示 
+	,若需要回收,该值最好小于DB中的 wait_timeout值,mysql默认是28800 jade.cfg.dbcp.minEvictableIdleTimeMillis=28000 
+	#连接被泄露时是否打印 jade.cfg.dbcp.logAbandoned=true #是否自动回收超时连接 jade.cfg.dbcp.removeAbandoned=true 
+	#回收超时连接超时时间(秒) jade.cfg.dbcp.removeAbandonedTimeout=600 #检查用的查询语句 jade.cfg.dbcp.validationQuery=SELECT 
+	NOW() FROM DUAL -->

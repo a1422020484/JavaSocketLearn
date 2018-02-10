@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
+
+    <property resource="config.properties"/>
+
+    <property scope="system" name="LogHome" value="/Users/xiezuojie/Downloads/temp/logs/game"/>
+    <property scope="system" name="GameLogsPath" value="${LogHome}/game_logs"/>
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 日志过滤,正式环境下删除 -->
+        <filter class="nettyServer.util.LogFilter"/>
+
+        <!-- 日志输出编码 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} |- %level %thread %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="game.runtime" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/runtime/runtime_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>365</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 记录保存失败的数据 -->
+    <appender name="cache-bak" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/cache-bak/%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss}|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="log-bak" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/log-bak/%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="chargeLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/charge/chargeLog%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>365</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss}|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="onlineCount" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/online/%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>100000</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:00}|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rankings" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/rankings_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="alliance" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/alliance/alliance_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 物品产出/消耗 -->
+    <appender name="item.output" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/item/output_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>365</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="item.consume" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/item/consume_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>365</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="game.timer" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/timer/timer_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 玩家的行为日志,格式是固定的 -->
+    <appender name="game_logs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${GameLogsPath}/%d{yyyyMMddHHmm}.log</FileNamePattern>
+            <!-- 14400=10天 -->
+            <MaxHistory>14400</MaxHistory>
+            <!--<cleanHistoryOnStart>true</cleanHistoryOnStart>-->
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- 日志输出级别 -->
+    <root level="ERROR">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="game.timer" level="INFO" additivity="false">
+        <appender-ref ref="game.timer"/>
+    </logger>
+
+    <logger name="cache-bak" level="INFO" additivity="false">
+        <appender-ref ref="cache-bak"/>
+    </logger>
+
+    <logger name="log-bak" level="INFO" additivity="false">
+        <appender-ref ref="log-bak"/>
+    </logger>
+
+    <logger name="chargeLog" level="INFO" additivity="false">
+        <appender-ref ref="chargeLog"/>
+    </logger>
+
+    <logger name="onlineCount" level="INFO" additivity="false">
+        <appender-ref ref="onlineCount"/>
+    </logger>
+
+    <logger name="game.runtime" level="INFO" additivity="false">
+        <appender-ref ref="game.runtime"/>
+    </logger>
+
+    <logger name="xzj.core" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="alliance" level="INFO" additivity="false">
+        <appender-ref ref="alliance"/>
+    </logger>
+
+    <logger name="rankings" level="INFO" additivity="false">
+        <appender-ref ref="rankings"/>
+    </logger>
+
+    <logger name="item.output" level="INFO" additivity="false">
+        <appender-ref ref="item.output"/>
+    </logger>
+    <logger name="item.consume" level="INFO" additivity="false">
+        <appender-ref ref="item.consume"/>
+    </logger>
+
+    <logger name="game_logs" level="INFO" additivity="false">
+        <appender-ref ref="game_logs"/>
+    </logger>
+
+    <!-- 打印sql语句,正式环境下删除 -->
+    <!--
+    <logger name="net.paoding.rose.jade.context.JadeInvocationHandler" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger> -->
+</configuration>

@@ -26,7 +26,7 @@ public class MessageClient {
 			}
 		});
 		// 连接到本地的8000端口的服务端
-		bootstrap.connect(new InetSocketAddress("127.0.0.1", 8000));
+		bootstrap.connect(new InetSocketAddress("127.0.0.1", 9501));
 	}
 
 	private static class MessageClientHandler extends SimpleChannelHandler {
