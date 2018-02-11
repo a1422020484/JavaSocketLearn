@@ -16,6 +16,7 @@ import nettyServer.util.HttpResponseHandler;
 import nettyServer.util.HttpUtils;
 import nettyServer.util.MsgUtils;
 import nettyServer.util.RSAUtils;
+import proto.Friend;
 import protobuf.userLogin.UserLogin;
 
 /**
@@ -45,9 +46,10 @@ public class GameClient {
 
 	public static void main(String[] args) {
 		GameClient client = new GameClient("127.0.0.1",9501);
-		UserLogin.TestInfo.Builder builder = UserLogin.TestInfo.newBuilder();
-		builder.setNum(666666);
-		builder.setTest("okjaskdf");
+		Friend.Builder builder = Friend.newBuilder();
+		builder.setPlayerId(1);
+		builder.setName("yang");
+		builder.setIconId("IconId");
 		client.send(9601,builder.build());
 	}
 	

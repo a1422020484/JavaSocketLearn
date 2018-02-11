@@ -19,57 +19,30 @@
 	<context:property-placeholder
 		ignore-unresolvable="true" file-encoding="UTF-8" location="classpath:config.properties" />
 	<context:annotation-config />
-
-	<context:property-placeholder location="classpath:./db.properties" />
-	<context:annotation-config />
-
+	
 	<bean
 		class="net.paoding.rose.jade.context.spring.JadeBeanFactoryPostProcessor" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-		<property name="maxActive" value="30" />
-		<property name="maxIdle" value="5" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<!-- 在config.properties配置 -->
+		<property name="url" value="${ds.url}" />
+		<property name="username" value="${ds.username}" />
+		<property name="password" value="${ds.password}" />
+		<property name="initialSize" value="64" />
+		<property name="maxActive" value="256" />
+		<property name="maxIdle" value="128" />
+		<property name="minIdle" value="64" />
+		<property name="maxWait" value="3000" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="27000" />
+		<property name="minEvictableIdleTimeMillis" value="28000" />
+		<property name="logAbandoned" value="true" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="180" />
+		<property name="validationQuery" value="SELECT 1" />
 	</bean>
-
-	<!-- 事务管理器 对mybatis操作数据库事务控制，spring使用jdbc的事务控制类 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<!-- sqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!-- 数据库连接池 -->
-		<property name="dataSource" ref="dataSource" />
-		<!-- 加载mybatis的全局配置文件 -->
-		<property name="configLocation" value="classpath:sqlMapConfig.xml" />
-		<property name="mapperLocations" value="classpath*:*Mapper.xml" />
-	</bean>
-	<!-- mapper扫描器 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
-		<property name="basePackage" value="spring.myBatis.mapper"></property>
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-	</bean>
-	<!-- <bean class="net.paoding.rose.jade.context.spring.JadeBeanFactoryPostProcessor" 
-		/> <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
-		destroy-method="close"> <property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
-		在config.properties配置 <property name="url" value="${ds.url}" /> <property 
-		name="username" value="${ds.username}" /> <property name="password" value="${ds.password}" 
-		/> <property name="initialSize" value="64" /> <property name="maxActive" 
-		value="256" /> <property name="maxIdle" value="128" /> <property name="minIdle" 
-		value="64" /> <property name="maxWait" value="3000" /> <property name="testWhileIdle" 
-		value="true" /> <property name="timeBetweenEvictionRunsMillis" value="27000" 
-		/> <property name="minEvictableIdleTimeMillis" value="28000" /> <property 
-		name="logAbandoned" value="true" /> <property name="removeAbandoned" value="true" 
-		/> <property name="removeAbandonedTimeout" value="180" /> <property name="validationQuery" 
-		value="SELECT 1" /> </bean> -->
-
 </beans>
 
 
