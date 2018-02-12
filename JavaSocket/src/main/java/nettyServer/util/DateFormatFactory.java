@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 日期格式化工具工厂
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public final class DateFormatFactory {
 

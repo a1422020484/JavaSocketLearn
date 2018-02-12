@@ -5,7 +5,7 @@ package nettyServer.util.cache;
  * <br>
  * 备份时使用自定义的数据结构进行保存,在恢复时将数据还原
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public abstract class CustomRestoreCompositePersistEntity<T extends PersistEntity> extends CompositePersistEntity<T> {
 	

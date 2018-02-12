@@ -9,7 +9,7 @@ import nettyServer.util.timer.TimerHandler;
 /**
  * 测试数据库连接服务
  *
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class DataBaseTestHandler implements TimerHandler, ServerStartupListener {

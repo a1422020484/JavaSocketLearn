@@ -4,7 +4,7 @@ package nettyServer.util;
 /**
  * 玩家数据初始化,在玩家数据创建或加载完成后调用,供其它模块创建初始化数据
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public interface PlayerDataInitializer {
 	/**

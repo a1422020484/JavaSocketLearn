@@ -17,7 +17,7 @@ import proto.ItemMsg;
  * <p/>
  * 2.提供发送邮件功能
  * 
- * @author zhuangyuetao
+ * @author yangxp
  */
 public class Award {
     // DropModel.dropId

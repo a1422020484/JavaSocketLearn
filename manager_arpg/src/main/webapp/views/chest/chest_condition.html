@@ -1,0 +1,73 @@
+<html>
+<form method="post">
+
+	<table class="dv-table"
+		style="width: 100%; border: 1px solid #ccc; padding: 5px; margin-top: 5px;">
+		<tr>
+			<td>物品</td>
+			<td>
+			<input class="easyui-combobox" id="item_id" name="item_id"
+				data-options="valueField:'id',textField:'name'">
+			</td>
+			<td>物品权重</td>
+			<td><input name="weight" id="weight" data-options="min:0,max:10000" class="easyui-numberbox"></input></td>
+		</tr>
+		<tr>
+			<td>物品数量</td>
+			<td><input class="easyui-numberbox"  id="num" name="num" ></td>
+			<td>随机数列表</td>
+			<td>
+			<input class="easyui-combobox" id="randomListId" name="randomListId"
+				data-options="valueField:'id',textField:'name'">
+			</td>
+			<!--  <td><input name="randomListId" id="randomListId" placeholder="(Int)可不填..." class="easyui-numberbox"></input></td>
+			-->
+		</tr>
+	</table>
+	<div style="padding: 5px 0; text-align: right; padding-right: 30px">
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-save" plain="true" onclick="save(this)">Save</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-cancel" plain="true" onclick="cancel(this)">Cancel</a>
+	</div>
+</form>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				
+				$.ajax({
+					type : "POST",
+					url : "../item/getSelect2EasyUi",
+					datatype : "json",
+					success : function(data) {
+						var obj = eval(data);
+						if (obj.length > 0) {
+							$('#item_id').combobox('loadData', obj);
+						}
+					},
+				});
+				
+				$.ajax({
+					type : "POST",
+					url : "../chest/RandomList/getSelect2EasyUi",
+					datatype : "json",
+					success : function(data) {
+						var obj = eval(data);
+						if (obj.length > 0) {
+							$('#randomListId').combobox('loadData', obj);
+						}
+					},
+				});
+			});
+	function save(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		saveItem(index);
+	}
+	function cancel(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		cancelItem(index);
+	}
+</script>
+</html>

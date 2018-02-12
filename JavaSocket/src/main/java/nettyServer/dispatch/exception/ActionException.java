@@ -1,7 +1,8 @@
 package nettyServer.dispatch.exception;
 
 /**
- * @author zuojie.x
+ * @author yangxp
+ *
  */
 public class ActionException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

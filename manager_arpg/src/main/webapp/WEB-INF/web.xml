@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+
+	<display-name>home</display-name>
+
+
+
+	<!-- portal 容易产生内存过多 -->
+	<!-- <context-param> <param-name>portalExecutorCorePoolSize</param-name> 
+		<param-value>5</param-value> </context-param> <context-param> <param-name>portalExecutorMaxPoolSize</param-name> 
+		<param-value>10</param-value> </context-param> <context-param> <param-name>portalExecutorKeepAliveSeconds</param-name> 
+		<param-value>1000</param-value> </context-param> -->
+
+	<!-- log -->
+	<!-- <context-param> <param-name>log4jConfigLocation</param-name> <param-value>/WEB-INF/log4j.properties</param-value> 
+		</context-param> <context-param> <param-name>log4jRefreshInterval</param-name> 
+		<param-value>60000</param-value> </context-param> <listener> <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class> 
+		</listener> -->
+
+	<!-- rose filter -->
+
+	<filter>
+		<filter-name>rose</filter-name>
+		<!-- <filter-class>cn.saturn.web.code.RoseFilterT</filter-class> -->
+		<filter-class>net.paoding.rose.RoseFilter</filter-class>
+		<async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>
+		<filter-name>rose</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+	<!-- <filter> <filter-name>CodeFilter</filter-name> <filter-class>cn.saturn.web.code.CodeFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>CodeFilter</filter-name> <url-pattern>/*</url-pattern> 
+		</filter-mapping> -->
+</web-app>

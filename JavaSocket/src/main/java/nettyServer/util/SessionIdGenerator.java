@@ -11,7 +11,7 @@ import javax.crypto.SecretKey;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public class SessionIdGenerator {
 	

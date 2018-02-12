@@ -1,0 +1,49 @@
+<html>
+<form method="post">
+
+	<table class="dv-table"
+		style="width: 100%; border: 1px solid #ccc; padding: 5px; margin-top: 5px;">
+		<tr>
+			<td>宝箱</td>
+			<td>
+			<input class="easyui-combobox" id="chestId" name="chestId"
+				data-options="valueField:'id',textField:'name'">
+			</td>
+		</tr>
+	</table>
+	<div style="padding: 5px 0; text-align: right; padding-right: 30px">
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-save" plain="true" onclick="save(this)">Save</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-cancel" plain="true" onclick="cancel(this)">Cancel</a>
+	</div>
+</form>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				
+				$.ajax({
+					type : "POST",
+					url : "../chest/getAll",
+					datatype : "json",
+					success : function(data) {
+						var obj = eval(data);
+						if (obj.length > 0) {
+							$('#chestId').combobox('loadData', obj);
+						}
+					},
+				});
+			});
+	function save(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		saveItem(index);
+	}
+	function cancel(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		console.log(index)
+		cancelItem(index);
+	}
+</script>
+</html>

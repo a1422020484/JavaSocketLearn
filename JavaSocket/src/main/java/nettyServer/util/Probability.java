@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * 计算概率工具<br>
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 public class Probability<T> {
 	private int probabilityRange; // 默认机率范围

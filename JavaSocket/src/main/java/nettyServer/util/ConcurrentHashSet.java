@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public class ConcurrentHashSet<E> extends AbstractSet<E> implements
 		Serializable {

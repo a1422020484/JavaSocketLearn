@@ -1,11 +1,7 @@
 package nettyServer.util;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * key重复时值累乘的HashMap
@@ -13,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @param <K>
  * @param <V>
  *
- * @author xiezuojie
+ * @author yangxp
  */
 public class MultiplicativeHashMap<K, V extends Number> extends HashMap<K, V> {
 	private static final long serialVersionUID = 1L;

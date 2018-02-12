@@ -17,12 +17,11 @@ import nettyServer.util.HttpUtils;
 import nettyServer.util.MsgUtils;
 import nettyServer.util.RSAUtils;
 import proto.Friend;
-import protobuf.userLogin.UserLogin;
 
 /**
  * 游戏服客户端
- * 
- * @author xiezuojie
+ * @author yangxp
+ *
  */
 public class GameClient {
 

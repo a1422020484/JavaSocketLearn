@@ -2,7 +2,7 @@ package nettyServer.util;
 
 
 /**
- * @author xiezuojie
+ * @author yangxp
  */
 public class GeometryUtil {
 

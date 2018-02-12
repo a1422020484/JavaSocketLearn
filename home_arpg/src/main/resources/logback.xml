@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+	<property scope="system" name="LogHome"
+		value="/Users/xiezuojie/Downloads/temp/logs/home" />
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+		<!-- 日志输出编码 -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} |- %-5level %thread %logger{36} -
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="call"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LogHome}/call_%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>7</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} | %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="back"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LogHome}/back_%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>7</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} | %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="login"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LogHome}/login_%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>7</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} | %msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<appender name="vpay"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Prudent>true</Prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LogHome}/vpay_%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>7</MaxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} | %msg%n</pattern>
+		</encoder>
+	</appender>
+
+    <appender name="gift"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/gift_%d{yyyy-MM-dd}.log
+            </FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} | %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="aligift"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/aligift_%d{yyyy-MM-dd}.log
+            </FileNamePattern>
+            <MaxHistory>7</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} | %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+
+	<logger name="jdbc.core.JdbcTemplate" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="ch.qos.logback.classic.LoggerContext" level="ERROR"
+		additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="jdbc.core.JdbcTemplate" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="call" level="INFO" additivity="false">
+		<appender-ref ref="call" />
+	</logger>
+	<logger name="login" level="INFO" additivity="false">
+		<appender-ref ref="login" />
+	</logger>
+	<logger name="back" level="INFO" additivity="false">
+		<appender-ref ref="back" />
+	</logger>
+
+	<logger name="vpay" level="INFO" additivity="false">
+		<appender-ref ref="vpay" />
+	</logger>
+
+    <logger name="gift" level="DEBUG" additivity="false">
+        <appender-ref ref="gift" />
+    </logger>
+
+    <logger name="xzj.core" level="DEBUG" additivity="true">
+        <appender-ref ref="STDOUT" />
+    </logger>
+	
+	 <logger name="aligift" level="DEBUG" additivity="false">
+        <appender-ref ref="aligift" />
+    </logger>
+</configuration>  

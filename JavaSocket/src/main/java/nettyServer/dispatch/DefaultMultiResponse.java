@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public class DefaultMultiResponse implements MultiResponse {
 	

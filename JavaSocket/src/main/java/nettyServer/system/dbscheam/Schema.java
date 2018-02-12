@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
 /**
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class Schema implements ApplicationContextAware {

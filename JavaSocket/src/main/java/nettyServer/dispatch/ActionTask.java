@@ -3,7 +3,7 @@ package nettyServer.dispatch;
 /**
  * Action任务
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 public interface ActionTask extends Runnable {
 

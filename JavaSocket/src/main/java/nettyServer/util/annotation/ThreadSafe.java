@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 只是为了标明这个类是线程安全的.
  *
- * @author zuojie.x
+ * @author yangxp
  */
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)

@@ -22,7 +22,7 @@ import nettyServer.util.RSAUtils;
  * 接收http请求,只解析post数据
  * 以http方式返回
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public class HttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
 

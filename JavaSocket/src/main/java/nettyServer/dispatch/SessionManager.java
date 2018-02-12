@@ -30,7 +30,7 @@ import nettyServer.util.annotation.NotNull;
  * Session管理器<br/>
  * 管理在线所有玩家,可获取在线玩家的ID列表,在线玩家总人数,踢玩家下线,发送消息给玩家,管理玩家组.
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public final class SessionManager implements ApplicationContextAware {
 

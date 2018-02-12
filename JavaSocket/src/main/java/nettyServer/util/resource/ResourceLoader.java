@@ -31,7 +31,7 @@ import java.io.InputStream;
  * <br/>
  * <b>注意:资源名匹配区分大小写,例i18n与I18N不等同.</b>
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public abstract class ResourceLoader {
 

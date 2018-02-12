@@ -8,7 +8,7 @@ import nettyServer.dispatch.Request;
 /**
  * 缓存数据持久化过滤器
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class CachedDataPersistActionFilter implements ActionFilter {

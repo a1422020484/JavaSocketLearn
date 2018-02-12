@@ -19,7 +19,7 @@ import nettyServer.util.cache.PersistEntity;
 /**
  * 供游戏内获取各种数据: 服务service, 数据管理器manager, 缓存数据cachedData
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public final class GameExplorer implements ApplicationContextAware, ServerStartupListener {

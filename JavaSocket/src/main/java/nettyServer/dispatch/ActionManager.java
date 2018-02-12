@@ -17,7 +17,7 @@ import nettyServer.util.LogKey;
 /**
  * Action管理器,负责加载Action,ActionFilter
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public class ActionManager implements ApplicationContextAware {
 	private final Logger log = LoggerFactory.getLogger(LogKey.CORE);

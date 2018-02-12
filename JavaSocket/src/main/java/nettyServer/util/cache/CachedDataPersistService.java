@@ -38,7 +38,7 @@ import nettyServer.util.GameUtils;
 /**
  * 缓存数据持久化服务
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class CachedDataPersistService implements ServerCloseListener, ServerStartupListener {

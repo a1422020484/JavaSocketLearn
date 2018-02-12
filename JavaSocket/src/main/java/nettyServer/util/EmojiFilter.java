@@ -3,7 +3,7 @@ package nettyServer.util;
 import java.util.regex.Matcher;
 
 /**
- * @author xiezuojie
+ * @author yangxp
  */
 public class EmojiFilter {
 

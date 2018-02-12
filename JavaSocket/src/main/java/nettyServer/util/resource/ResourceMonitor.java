@@ -27,7 +27,7 @@ import nettyServer.util.CoreConfig;
 import nettyServer.util.LogKey;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public class ResourceMonitor implements ApplicationContextAware {
 	private static final Logger log = LoggerFactory.getLogger(LogKey.CORE);

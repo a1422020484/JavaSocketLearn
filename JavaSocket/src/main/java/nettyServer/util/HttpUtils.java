@@ -28,7 +28,7 @@ import org.apache.http.util.EntityUtils;
 /**
  * HTTP工具类
  *
- * @author xiezuojie
+ * @author yangxp
  */
 public class HttpUtils {
 	

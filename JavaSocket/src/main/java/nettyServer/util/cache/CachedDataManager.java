@@ -11,7 +11,7 @@ import nettyServer.util.GameUtils;
 /**
  * 缓存实体管理类
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public abstract class CachedDataManager<T extends PersistEntity> {
 	

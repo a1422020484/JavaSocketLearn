@@ -9,7 +9,7 @@ import java.util.Locale;
 /**
  * 日期工具
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public class DateUtil {
 

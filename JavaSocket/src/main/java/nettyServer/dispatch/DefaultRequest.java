@@ -12,7 +12,7 @@ import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.MessageOrBuilder;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public class DefaultRequest implements Request, Serializable {
 	private static final long serialVersionUID = 1L;

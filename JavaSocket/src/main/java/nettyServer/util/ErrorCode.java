@@ -3,7 +3,7 @@ package nettyServer.util;
 /**
  * 错误码
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 public final class ErrorCode {
 	/** 用户未登录 */

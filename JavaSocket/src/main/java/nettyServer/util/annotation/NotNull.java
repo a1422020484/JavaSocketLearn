@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 标明这个方法永远不会返回null.
  *
- * @author zuojie.x
+ * @author yangxp
  */
 @Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

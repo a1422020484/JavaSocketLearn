@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 class ActionExecutor<T extends ActionTask> {
 	int id;

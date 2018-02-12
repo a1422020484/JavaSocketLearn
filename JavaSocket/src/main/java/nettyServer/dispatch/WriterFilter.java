@@ -3,7 +3,7 @@ package nettyServer.dispatch;
 /**
  * 在写出时过滤掉指定玩家
  *
- * @author xiezuojie
+ * @author yangxp
  */
 public interface WriterFilter {
 	/**

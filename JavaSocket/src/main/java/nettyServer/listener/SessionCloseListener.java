@@ -3,7 +3,7 @@ package nettyServer.listener;
 /**
  * 客户端断开连接监听器
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public interface SessionCloseListener {
 	/**

@@ -14,7 +14,7 @@ import com.thoughtworks.xstream.XStream;
 import nettyServer.util.resource.ResourceLoader;
 
 /**
- * @author yangxp 精灵矿洞数据
+ * @author yangxp 
  */
 @Component
 public class TempletDataModelManager extends ResourceLoader {
@@ -26,7 +26,7 @@ public class TempletDataModelManager extends ResourceLoader {
 		XStream xs = new XStream();
 		xs.ignoreUnknownElements();
 		xs.alias("list", List.class);
-		xs.alias("mineData", TempletDataModel.class);
+		xs.alias("templetData", TempletDataModel.class);
 		@SuppressWarnings("unchecked")
 		List<TempletDataModel> list = (List<TempletDataModel>) xs.fromXML(is);
 		TempletDataModelManager.models = Collections.unmodifiableMap(list.stream().collect(Collectors.toMap(TempletDataModel::getMineId, m -> m)));

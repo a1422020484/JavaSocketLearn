@@ -31,7 +31,7 @@ import nettyServer.util.LogKey;
 import nettyServer.util.resource.ResourceMonitor;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public class GameServer {
 	private static final Logger log = LoggerFactory.getLogger(LogKey.CORE);

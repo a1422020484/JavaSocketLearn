@@ -7,7 +7,7 @@ import java.util.UUID;
 /**
  * 简单工具类
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public final class Tool {
 

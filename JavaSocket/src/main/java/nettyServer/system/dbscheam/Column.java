@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 /**
  * MYSQL 5.6
- * @author xiezuojie
+ * @author yangxp
  */
 public class Column {
     String TABLE_NAME; // 表名

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<list>
+  <templetData>
+    <mineId>100000001</mineId>
+    <mineType>1</mineType>
+    <mineRes>aaa</mineRes>
+    <openLv>10</openLv>
+  </templetData>
+  <templetData>
+    <mineId>100000002</mineId>
+    <mineType>2</mineType>
+    <mineRes>bbb</mineRes>
+    <openLv>20</openLv>
+  </templetData>
+  <templetData>
+    <mineId>100000003</mineId>
+    <mineType>3</mineType>
+    <mineRes>ccc</mineRes>
+    <openLv>30</openLv>
+  </templetData>
+</list>

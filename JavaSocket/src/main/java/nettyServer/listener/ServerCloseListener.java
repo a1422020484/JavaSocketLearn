@@ -4,7 +4,7 @@ package nettyServer.listener;
  * 服务器关闭监听器<br>
  * 在服务器收到关闭命令时调用,此时所有已在线的玩家已被清除,服务器停止接受新socket连接, 此监听器提供给其它功能实现各自的退出保存操作
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public interface ServerCloseListener {
 	/**

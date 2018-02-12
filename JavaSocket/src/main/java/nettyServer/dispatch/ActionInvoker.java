@@ -14,7 +14,7 @@ import nettyServer.util.param.ProtobufReflectReader;
 /**
  * Action执行类
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public class ActionInvoker {
 	Object actionObj; // 原对象

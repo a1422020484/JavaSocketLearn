@@ -7,7 +7,7 @@ import nettyServer.util.GameUtils;
 /**
  * 实体集
  *
- * @author xiezuojie
+ * @author yangxp
  */
 public class Entities {
     private int playerId;

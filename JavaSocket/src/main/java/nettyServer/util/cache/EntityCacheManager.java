@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public interface EntityCacheManager {
 

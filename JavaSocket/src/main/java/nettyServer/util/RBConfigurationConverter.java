@@ -3,7 +3,7 @@ package nettyServer.util;
 import com.thoughtworks.xstream.converters.basic.AbstractSingleValueConverter;
 
 /**
- * @author xiezuojie
+ * @author yangxp
  */
 public class RBConfigurationConverter extends AbstractSingleValueConverter {
 

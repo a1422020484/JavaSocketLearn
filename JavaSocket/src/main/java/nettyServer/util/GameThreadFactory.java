@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 游戏服用线程工厂
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 public class GameThreadFactory implements ThreadFactory {
     private final String namePrefix;

@@ -27,7 +27,7 @@ import nettyServer.dispatch.SessionManager;
  * <br>
  * <b>协议号: 101~199为框架保留号</b>
  * <br>
- * @author zuojie.x
+ * @author yangxp
  */
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

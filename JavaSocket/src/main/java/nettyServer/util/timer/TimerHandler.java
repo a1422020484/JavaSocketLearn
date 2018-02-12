@@ -3,7 +3,7 @@ package nettyServer.util.timer;
 /**
  * 定时处理器
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public interface TimerHandler {
 	/**

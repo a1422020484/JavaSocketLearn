@@ -20,7 +20,7 @@ import nettyServer.system.dbscheam.Schema;
 /**
  * 更新数据库
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class DBUpdateListener implements ServerStartupListener {

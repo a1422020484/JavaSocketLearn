@@ -31,7 +31,7 @@ import nettyServer.util.MsgUtils;
 /**
  * 请求转发器
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public class CoreDispatcher {
 	private static final Logger log = LoggerFactory.getLogger(LogKey.CORE);

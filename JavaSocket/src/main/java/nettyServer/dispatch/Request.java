@@ -5,7 +5,7 @@ import nettyServer.util.annotation.NotNull;
 /**
  * 客户端的请求
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public interface Request {
 

@@ -9,7 +9,7 @@ import nettyServer.dispatch.Session;
 import nettyServer.dispatch.ThreadLocalRequest;
 
 /**
- * @author xiezuojie
+ * @author yangxp
  *         <p>
  *         国际化消息
  *         Resource Bundle Message

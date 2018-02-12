@@ -11,7 +11,7 @@ import nettyServer.util.CoreConfig;
 /**
  * 默认Session实现
  *
- * @author zuojie.x
+ * @author yangxp
  */
 class DefaultSession implements Session {
 	protected String sessionId;

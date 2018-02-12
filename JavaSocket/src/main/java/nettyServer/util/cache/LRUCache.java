@@ -11,7 +11,7 @@ import nettyServer.util.annotation.ThreadSafe;
 /**
  * LRU算法实现的缓存
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @ThreadSafe
 public class LRUCache<K, V> {
@@ -108,7 +108,7 @@ public class LRUCache<K, V> {
 	/**
 	 * 移除监听器,在数据从缓存中移除时调用
 	 * 
-	 * @author xiezuojie
+	 * @author yangxp
 	 */
 	interface RemoveListener {
 		/**

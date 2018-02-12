@@ -1,0 +1,94 @@
+<html>
+<form method="post">
+	<table class="dv-table"
+		style="width: 100%; border: 1px solid #ccc; padding: 5px; margin-top: 5px;">
+		<tr>
+			<td>
+			<div id="presetTyp30_1">
+			累计充值金额
+			<input name="cz_1" data-options="min:0,max:200000000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			奖励转盘次数
+			<input name="cs_1" data-options="min:0,max:10000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="presetTyp30_2"  >
+			单笔充值金额
+			<input name="cz_2" data-options="min:0,max:200000000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			奖励转盘次数
+			<input name="cs_2" data-options="min:0,max:10000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="presetTyp30_3"  >
+			累计消耗道具
+			<input class="easyui-combobox" id="item_id" name="item_id"
+				data-options="valueField:'id',textField:'name'">
+			消耗道具个数<input name="cz_3" data-options="min:0,max:10000"  placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			奖励转盘次数
+			<input name="cs_3" data-options="min:0,max:10000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="presetTyp30_4"  >
+			累计水晶十连抽<input name="cz_4" data-options="min:0,max:10000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			奖励转盘次数<input name="cs_4" data-options="min:0,max:10000" placeholder="(Int)必填..." class="easyui-numberbox"></input>
+			</div>
+			</td>
+		</tr>
+	</table>
+	
+	<div style="padding: 5px 0; text-align: right; padding-right: 30px">
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-save" plain="true" onclick="save(this)">Save</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-cancel" plain="true" onclick="cancel(this)">Cancel</a>
+	</div>
+</form>
+<script type="text/javascript">
+	$(document).ready(
+		function() {
+			$.ajax({
+				type : "POST",
+				url : "../item/getSelect2EasyUiAll",
+				datatype : "json",
+				success : function(data) {
+				var obj = eval(data);
+				if (obj.length > 0) {
+					$('#item_id').combobox('loadData', obj);
+					}
+				},
+			});
+			
+		var selectId = $('#speArgType').find('option:selected').attr('id');
+		showItem(selectId);
+	});
+	
+	function showItem(item){
+		for(var i=1;i<5;i++){
+			if(i==item)
+				$('#presetTyp30_'+i).show();
+			else
+				$('#presetTyp30_'+i).hide();
+		}	
+	}
+	
+	
+	function save(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		saveItem(index,'#dg30_addTimes','saveType30AddTimes','updateType30AddTimes');
+	}
+	function cancel(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		cancelItem(index,'#dg30_item_lists');
+	}
+</script>
+</html>

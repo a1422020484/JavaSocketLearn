@@ -3,7 +3,7 @@ package nettyServer.util;
 /**
  * 日志标识
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public interface LogKey {
 	/**

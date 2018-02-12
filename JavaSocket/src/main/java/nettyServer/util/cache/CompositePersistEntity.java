@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 复合实体
  * 
- * @author xiezuojie
+ * @author yangxp
  *
  * @param <T>
  *            PersistEntity

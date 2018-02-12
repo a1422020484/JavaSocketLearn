@@ -12,7 +12,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * <br>
  * <b>实体类必须存在无参数构造器!</b>
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public abstract class PersistEntity implements Cloneable {
 	

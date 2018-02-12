@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * 缓存管理器管理类
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class CachedDataManagers implements ApplicationContextAware {

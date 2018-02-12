@@ -6,7 +6,7 @@ import nettyServer.util.CoreConfig;
 /**
  * 参数读取
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public abstract class ParamReader {
 	

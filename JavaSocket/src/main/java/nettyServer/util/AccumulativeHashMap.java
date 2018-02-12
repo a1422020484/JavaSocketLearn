@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @param <K>
  * @param <V>
  *
- * @author xiezuojie
+ * @author yangxp
  */
 public class AccumulativeHashMap<K, V extends Number> extends HashMap<K, V> {
 	private static final long serialVersionUID = 1L;

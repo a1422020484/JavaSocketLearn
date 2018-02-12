@@ -3,7 +3,7 @@ package nettyServer.dispatch;
 /**
  * 服务器返回给客户端
  *
- * @author zuojie.x
+ * @author yangxp
  * @see {@link ResponseFactory}
  */
 public interface Response {

@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 /**
  * 
- * @author guoqiong.shi
+ * @author yangxp
  *
  */
 public class BeanUtil {

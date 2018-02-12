@@ -8,7 +8,7 @@ import nettyServer.util.GameUtils;
 /**
  * 缓存复合实体管理类
  * 
- * @author xiezuojie
+ * @author yangxp
  *
  */
 public abstract class CachedCompositeDataManager<T extends CompositePersistEntity<?>> extends CachedDataManager<T> {

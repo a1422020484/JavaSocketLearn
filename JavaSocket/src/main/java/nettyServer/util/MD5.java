@@ -10,7 +10,7 @@ import nettyServer.util.annotation.NotNull;
 /**
  * MD5工具
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public final class MD5 {
 	// 用来将字节转换成 16 进制表示的字符

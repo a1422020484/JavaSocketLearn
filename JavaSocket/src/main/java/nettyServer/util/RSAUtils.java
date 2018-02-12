@@ -10,7 +10,7 @@ import javax.crypto.Cipher;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public class RSAUtils {
 

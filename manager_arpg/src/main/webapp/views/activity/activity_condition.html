@@ -1,0 +1,80 @@
+<html>
+<form method="post">
+
+	<table class="dv-table"
+		style="width: 100%; border: 1px solid #ccc; padding: 5px; margin-top: 5px;">
+		<tr>
+			<td>奖励条件</td>
+			<td><input name="req" placeholder="可不填..."></input></td>
+			<td>奖励提交说明</td>
+			<td><lable name="award"></lable></td>
+		</tr>
+		<tr>
+			<td>物品id_01</td>
+			<td>
+			<input class="easyui-combobox" id="item_id_01" name="item_id_01"
+				data-options="valueField:'id',textField:'name'">
+			</td>
+			<td>物品数量_01</td>
+			<td><input name="item_num_01" placeholder="(Int)可不填..." class="easyui-numberbox"></input></td>
+		</tr>
+		<tr>
+			<td>物品id_02</td>
+			<td><input class="easyui-combobox" id="item_id_02" name="item_id_02"
+				data-options="valueField:'id',textField:'name'"></td>
+			<td>物品数量_02</td>
+			<td><input name="item_num_02" placeholder="(Int)可不填..." class="easyui-numberbox"></input></td>
+		</tr>
+		<tr>
+			<td>物品id_03</td>
+			<td><input class="easyui-combobox" id="item_id_03" name="item_id_03"
+				data-options="valueField:'id',textField:'name'"></td>
+			<td>物品数量_03</td>
+			<td><input name="item_num_03" placeholder="(Int)可不填..." class="easyui-numberbox"></input></td>
+		</tr>
+		<tr>
+			<td>物品id_04</td>
+			<td><input class="easyui-combobox" id="item_id_04" name="item_id_04"
+				data-options="valueField:'id',textField:'name'"></td>
+			<td>物品数量_04</td>
+			<td><input name="item_num_04" placeholder="(Int)可不填..." class="easyui-numberbox"></input></td>
+		</tr>
+
+	</table>
+	<div style="padding: 5px 0; text-align: right; padding-right: 30px">
+		<a href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-save" plain="true" onclick="save(this)">Save</a> <a
+			href="javascript:void(0)" class="easyui-linkbutton"
+			iconCls="icon-cancel" plain="true" onclick="cancel(this)">Cancel</a>
+	</div>
+</form>
+<script type="text/javascript">
+	$(document).ready(
+		function() {
+			$.ajax({
+				type : "POST",
+				url : "../item/getSelect2EasyUiAll",
+				datatype : "json",
+				success : function(data) {
+				var obj = eval(data);
+				if (obj.length > 0) {
+					$('#item_id_01').combobox('loadData', obj);
+					$('#item_id_02').combobox('loadData', obj);
+					$('#item_id_03').combobox('loadData', obj);
+					$('#item_id_04').combobox('loadData', obj);
+					}
+				},
+			});
+	});
+	function save(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		saveItem(index,'#dg','saveRewAndReq','updateRewAndReq');
+	}
+	function cancel(target) {
+		var tr = $(target).closest('.datagrid-row-detail').closest('tr').prev();
+		var index = parseInt(tr.attr('datagrid-row-index'));
+		cancelItem(index,'#dg');
+	}
+</script>
+</html>

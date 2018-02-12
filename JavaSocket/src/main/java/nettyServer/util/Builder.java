@@ -3,7 +3,7 @@ package nettyServer.util;
 /**
  * Builder
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public interface Builder<T> {
 	/**

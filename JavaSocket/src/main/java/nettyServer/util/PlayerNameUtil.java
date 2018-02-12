@@ -12,7 +12,7 @@ import nettyServer.util.resource.ResourceLoader;
 /**
  * 随机玩家昵称
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 @Component
 public final class PlayerNameUtil extends ResourceLoader {

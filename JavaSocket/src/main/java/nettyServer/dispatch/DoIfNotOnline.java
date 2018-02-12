@@ -3,7 +3,7 @@ package nettyServer.dispatch;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 interface DoIfNotOnline {
 	

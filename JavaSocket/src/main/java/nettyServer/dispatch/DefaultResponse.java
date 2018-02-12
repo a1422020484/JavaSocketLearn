@@ -8,7 +8,7 @@ import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.MessageOrBuilder;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public class DefaultResponse implements Response, Serializable {
 	private static final long serialVersionUID = 1L;

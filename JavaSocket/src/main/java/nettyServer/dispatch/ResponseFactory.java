@@ -8,7 +8,7 @@ import proto.ErrSC;
 /**
  * Response工厂
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public final class ResponseFactory {
 

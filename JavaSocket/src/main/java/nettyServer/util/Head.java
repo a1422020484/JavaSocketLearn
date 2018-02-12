@@ -1,7 +1,7 @@
 package nettyServer.util;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public interface Head {
     /**

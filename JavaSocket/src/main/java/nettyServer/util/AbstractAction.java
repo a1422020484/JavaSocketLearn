@@ -7,7 +7,7 @@ import nettyServer.dispatch.Request;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public abstract class AbstractAction {
 	@Resource protected Request req;

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-3.0.xsd"> 
+
+
+	<context:property-placeholder
+		ignore-unresolvable="true" file-encoding="UTF-8" location="classpath:config.properties" />
+	<context:annotation-config />
+
+	<context:component-scan base-package="cn.saturn.operation">
+	</context:component-scan>
+
+	<!-- 数据库组件设置 -->
+	<bean
+		class="net.paoding.rose.jade.context.spring.JadeBeanFactoryPostProcessor" />
+	<!-- 数据库连接设置 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 数据库信息配置 -->
+		<property name="url" value="${defaultDB.url}" />
+		<property name="username" value="${defaultDB.username}" />
+		<property name="password" value="${defaultDB.password}" />
+		<!-- 连接配置参数 -->
+		<property name="driverClassName" value="${defaultDB.driver}" />
+		<property name="initialSize" value="${defaultDB.initialSize}" />
+		<property name="maxWait" value="${defaultDB.maxWait}" />
+		<property name="maxIdle" value="${defaultDB.maxIdle}" />
+		<property name="maxActive" value="${defaultDB.maxActive}" />
+		<property name="logAbandoned" value="true" />	<!-- 关闭输出 -->
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="600" />
+		<!-- 失效检测 -->
+		<property name="validationQuery" value="select now() from dual" />
+		<property name="testOnBorrow" value="true"></property>
+	</bean>
+	<!-- 游戏登录服db logindb -->
+	<bean id="loginDb" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 数据库信息配置 -->
+		<property name="url" value="${loginDB.url}" />
+		<property name="username" value="${loginDB.username}" />
+		<property name="password" value="${loginDB.password}" />
+		<!-- 连接配置参数 -->
+		<property name="driverClassName" value="${loginDB.driver}" />
+		<property name="initialSize" value="${loginDB.initialSize}" />
+		<property name="maxWait" value="${loginDB.maxWait}" />
+		<property name="maxIdle" value="${loginDB.maxIdle}" />
+		<property name="maxActive" value="${loginDB.maxActive}" />
+		<property name="logAbandoned" value="true" />	<!-- 关闭输出 -->
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="600" />
+		<!-- 失效检测 -->
+		<property name="validationQuery" value="select now() from dual" />
+		<property name="testOnBorrow" value="true"></property>
+
+	</bean>
+
+
+</beans>

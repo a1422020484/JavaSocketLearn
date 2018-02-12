@@ -6,7 +6,7 @@ import nettyServer.util.CoreConfig;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public final class CachedDataPersistStrategy {
 

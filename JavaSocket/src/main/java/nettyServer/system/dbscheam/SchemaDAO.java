@@ -3,7 +3,7 @@ package nettyServer.system.dbscheam;
 import java.util.List;
 
 /**
- * @author xiezuojie
+ * @author yangxp
  */
 //@DAO
 public interface SchemaDAO {

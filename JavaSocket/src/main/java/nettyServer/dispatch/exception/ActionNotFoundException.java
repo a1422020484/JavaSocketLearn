@@ -1,7 +1,7 @@
 package nettyServer.dispatch.exception;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public class ActionNotFoundException extends ActionException {
 	/**  */

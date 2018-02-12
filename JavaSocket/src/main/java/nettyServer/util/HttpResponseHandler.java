@@ -5,7 +5,7 @@ import org.apache.http.HttpResponse;
 /**
  * 
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public interface HttpResponseHandler {
 

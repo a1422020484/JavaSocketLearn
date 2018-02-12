@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 一次连接会话
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public interface Session {
 

@@ -13,7 +13,7 @@ import nettyServer.util.annotation.NotNull;
 /**
  * 字符串转换工具集
  *
- * @author xiezuojie
+ * @author yangxp
  */
 public class ToStringUtils {
 	

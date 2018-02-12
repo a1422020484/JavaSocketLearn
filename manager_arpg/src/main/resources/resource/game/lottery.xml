@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<list>
+  <lottery>
+    <lotteryId>810000001</lotteryId>
+    <lotteryName>限时礼包1</lotteryName>
+    <orderId>1</orderId>
+    <lotteryType>1</lotteryType>
+    <lotteryPicture>activity_timeLimitedPackage_1</lotteryPicture>
+    <lotteryPriceType>1</lotteryPriceType>
+    <lotteryPrice>200</lotteryPrice>
+    <lottery10Price>2000</lottery10Price>
+    <lotteryCumulativeNum>10</lotteryCumulativeNum>
+  </lottery>
+  <lottery>
+    <lotteryId>810000002</lotteryId>
+    <lotteryName>限时礼包2</lotteryName>
+    <orderId>2</orderId>
+    <lotteryType>1</lotteryType>
+    <lotteryPicture>activity_timeLimitedPackage_2</lotteryPicture>
+    <lotteryPriceType>2</lotteryPriceType>
+    <lotteryPrice>200</lotteryPrice>
+    <lottery10Price>2000</lottery10Price>
+    <lotteryCumulativeNum>20</lotteryCumulativeNum>
+  </lottery>
+  <lottery>
+    <lotteryId>810000003</lotteryId>
+    <lotteryName>限时礼包3</lotteryName>
+    <orderId>1</orderId>
+    <lotteryType>2</lotteryType>
+    <lotteryPicture>activity_classicPackage_1</lotteryPicture>
+    <lotteryPriceType>1</lotteryPriceType>
+    <lotteryPrice>200</lotteryPrice>
+    <lottery10Price>2000</lottery10Price>
+    <lotteryCumulativeNum>30</lotteryCumulativeNum>
+  </lottery>
+  <lottery>
+    <lotteryId>810000004</lotteryId>
+    <lotteryName>限时礼包4</lotteryName>
+    <orderId>2</orderId>
+    <lotteryType>2</lotteryType>
+    <lotteryPicture>activity_classicPackage_2</lotteryPicture>
+    <lotteryPriceType>2</lotteryPriceType>
+    <lotteryPrice>200</lotteryPrice>
+    <lottery10Price>2000</lottery10Price>
+    <lotteryCumulativeNum>40</lotteryCumulativeNum>
+  </lottery>
+</list>

@@ -18,7 +18,7 @@ import nettyServer.util.CoreConfig;
  * 其它操作队列,指不需要登录并且不属于登录操作和系统操作之外的其它操作,例如获取系统时间.</li>
  * 
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 public final class ActionTaskService {
 

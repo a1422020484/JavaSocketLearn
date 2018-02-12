@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public class Startup implements Daemon {
 

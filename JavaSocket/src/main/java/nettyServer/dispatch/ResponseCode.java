@@ -3,7 +3,7 @@ package nettyServer.dispatch;
 /**
  * 返回码
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public enum ResponseCode {
 	/**

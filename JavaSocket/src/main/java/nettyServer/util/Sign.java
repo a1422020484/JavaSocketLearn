@@ -3,7 +3,7 @@ package nettyServer.util;
 import nettyServer.dispatch.Request;
 
 /**
- * @author zuojie.x
+ * @author yangxp
  */
 public final class Sign {
 	static final String SecretKey = CoreConfig.stringValue("SystemSecretKey");

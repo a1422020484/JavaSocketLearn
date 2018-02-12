@@ -7,7 +7,7 @@ import nettyServer.util.CoreConfig;
 /**
  * 缓存管理器,多线程下可安全使用
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 public final class MemoryCacheManager implements EntityCacheManager {
 

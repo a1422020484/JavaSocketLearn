@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * Request外观类,提供给控制器类使用
  *
- * @author zuojie.x
+ * @author yangxp
  */
 @Component
 public class RequestFacade implements Request {

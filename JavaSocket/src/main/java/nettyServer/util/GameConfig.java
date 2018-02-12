@@ -28,7 +28,7 @@ import nettyServer.util.resource.ResourceLoader;
 /**
  * 游戏配置工具
  * 
- * @author xiezuojie
+ * @author yangxp
  */
 @Component
 public class GameConfig extends ResourceLoader {

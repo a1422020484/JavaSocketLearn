@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 /**
  * 反射实现,读取protobuf
  * 
- * @author zuojie.x
+ * @author yangxp
  */
 public class ProtobufReflectReader extends ParamReader {
 

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 管理服务器配置
  *
- * @author zuojie.x
+ * @author yangxp
  */
 public final class CoreConfig {
 

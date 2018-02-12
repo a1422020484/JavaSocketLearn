@@ -3,7 +3,7 @@
 
     <property resource="config.properties"/>
 
-    <property scope="system" name="LogHome" value="/Users/xiezuojie/Downloads/temp/logs/game"/>
+    <property scope="system" name="LogHome" value="/Users/yangxp/Downloads/temp/logs/game"/>
     <property scope="system" name="GameLogsPath" value="${LogHome}/game_logs"/>
 
     <!-- 控制台输出 -->

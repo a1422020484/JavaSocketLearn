@@ -5,7 +5,7 @@ import nettyServer.util.annotation.ThreadSafe;
 /**
  * Request引用保存在线程本地变量中,提供更简单的方式设置和获取request
  *
- * @author zuojie.x
+ * @author yangxp
  */
 @ThreadSafe
 public class ThreadLocalRequest {
