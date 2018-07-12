@@ -29,6 +29,7 @@ import io.netty.util.concurrent.GenericFutureListener;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 import java.net.InetAddress;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,16 +46,21 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
 		// Once session is secured, send a greeting and register the channel to
 		// the global channel
 		// list so the channel received the messages from others.
-		ctx.pipeline().get(SslHandler.class).handshakeFuture().addListener(new GenericFutureListener<Future<Channel>>() {
-			@Override
-			public void operationComplete(Future<Channel> future) throws Exception {
-				
+    	if(ctx.pipeline().get(SslHandler.class) == null) {
+    		channels.writeAndFlush(new TextWebSocketFrame("Welcome to secure chat service!\n"));
+			channels.add(ctx.channel());
+    	} else {
+    		ctx.pipeline().get(SslHandler.class).handshakeFuture().addListener(new GenericFutureListener<Future<Channel>>() {
+    			@Override
+    			public void operationComplete(Future<Channel> future) throws Exception {
+    				
 //				ctx.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
 //				ctx.writeAndFlush(new TextWebSocketFrame("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n"));
-				channels.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
-				channels.add(ctx.channel());
-			}
-		});
+    				channels.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
+    				channels.add(ctx.channel());
+    			}
+    		});
+    	}
 	}
     
     @Override
@@ -65,7 +71,7 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
             // Send the uppercase string back.
             String msg = ((TextWebSocketFrame) frame).text();
 //            logger.info("{} received {}", ctx.channel(), msg);
-//            ctx.channel().writeAndFlush(new TextWebSocketFrame(msg.toUpperCase(Locale.US)));
+            ctx.channel().writeAndFlush(new TextWebSocketFrame(msg.toUpperCase(Locale.US)));
             
             for (Channel c : channels) {
     			if (c != ctx.channel()) {

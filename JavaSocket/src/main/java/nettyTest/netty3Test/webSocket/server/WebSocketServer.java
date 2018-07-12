@@ -61,12 +61,12 @@ public final class WebSocketServer {
 	public static void inistrancedNetty() throws Exception {
 		// Configure SSL.
 		final SslContext sslCtx;
-		// if (SSL) {
-		SelfSignedCertificate ssc = new SelfSignedCertificate();
-		sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
-		// } else {
-		// sslCtx = null;
-		// }
+		if (SSL) {
+			SelfSignedCertificate ssc = new SelfSignedCertificate();
+			sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+		} else {
+			sslCtx = null;
+		}
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {

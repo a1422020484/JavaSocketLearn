@@ -40,10 +40,11 @@ public class WebSocketServerInitializer extends ChannelInitializer<SocketChannel
     @Override
     public void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-//        if (sslCtx != null) {
-//            pipeline.addLast(sslCtx.newHandler(ch.alloc()));
-//        }
-        pipeline.addLast(sslCtx.newHandler(ch.alloc()));
+        if (sslCtx != null) {
+            pipeline.addLast(sslCtx.newHandler(ch.alloc()));
+        }
+//        pipeline.addLast(sslCtx.newHandler(ch.alloc()));
+//        pipeline.addLast(sslCtx.newHandler(ch.alloc()));
 //      5秒不发送数据之后断线
 //        pipeline.addLast(new ReadTimeoutHandler(5));
         pipeline.addLast(new HttpServerCodec());
