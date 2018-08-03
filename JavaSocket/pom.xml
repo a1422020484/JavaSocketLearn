@@ -179,6 +179,14 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.3.6</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		    <version>1.9.1</version>
+		</dependency>
+		
 		<!-- GameServer专用Down -->
 		<dependency>
 			<groupId>commons-io</groupId>
