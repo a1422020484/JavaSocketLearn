@@ -1,0 +1,157 @@
+﻿<servers>
+
+<server>
+		<name>1.4开发版本</name>
+		<domain>game</domain>
+		<host>139.199.222.89</host>
+		<port>22</port>
+		<username>root</username>
+		<password>GSvLqEH3W13IHEWd/lFZ8l1</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/kdyg_arpg/arpg_s1/socket/</uploadPath>
+		<startCommand>/data/kdyg_arpg/arpg_s1/game.sh start</startCommand>
+		<stopCommand>/data/kdyg_arpg/arpg_s1/game.sh stop</stopCommand>
+		<restartCommand>/data/kdyg_arpg/arpg_s1/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>1.3线上版本</name>
+		<domain>game</domain>
+		<host>139.199.222.89</host>
+		<port>22</port>
+		<username>root</username>
+		<password>GSvLqEH3W13IHEWd/lFZ8l1</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/kdyg_arpg/arpg_s2/socket/</uploadPath>
+		<startCommand>/data/kdyg_arpg/arpg_s2/game.sh start</startCommand>
+		<stopCommand>/data/kdyg_arpg/arpg_s2/game.sh stop</stopCommand>
+		<restartCommand>/data/kdyg_arpg/arpg_s2/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG-评测服</name>
+		<domain>game</domain>
+		<host>139.199.222.89</host>
+		<port>22</port>
+		<username>root</username>
+		<password>GSvLqEH3W13IHEWd/lFZ8l1</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data0/kdyg_arpg_pingce/arpg_pingce/socket/</uploadPath>
+		<startCommand>/data0/kdyg_arpg_pingce/arpg_pingce/game.sh start</startCommand>
+		<stopCommand>/data0/kdyg_arpg_pingce/arpg_pingce/game.sh stop</stopCommand>
+		<restartCommand>/data0/kdyg_arpg_pingce/arpg_pingce/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-繁体服内网</name>
+		<domain>game</domain>
+		<host>139.199.222.89</host>
+		<port>22</port>
+		<username>root</username>
+		<password>GSvLqEH3W13IHEWd/lFZ8l1</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/kdyg_arpg/arpg_s4/socket/</uploadPath>
+		<startCommand>/data/kdyg_arpg/arpg_s4/game.sh start</startCommand>
+		<stopCommand>/data/kdyg_arpg/arpg_s4/game.sh stop</stopCommand>
+		<restartCommand>/data/kdyg_arpg/arpg_s4/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-繁体服外网测试服</name>
+		<domain>game</domain>
+		<host>164.52.28.178</host>
+		<port>21212</port>
+		<username>root</username>
+		<password>EdLZYdkR3x4SKKZuswAQA==</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/application/s10001/socket/</uploadPath>
+		<startCommand>/data/application/s10001/game.sh start</startCommand>
+		<stopCommand>/data/application/s10001/game.sh stop</stopCommand>
+		<restartCommand>/data/application/s10001/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-繁体服外网彩虹都市</name>
+		<domain>game</domain>
+		<host>164.52.28.178</host>
+		<port>21212</port>
+		<username>root</username>
+		<password>EdLZYdkR3x4SKKZuswAQA==</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/application/s10000/socket/</uploadPath>
+		<startCommand>/data/application/s10000/game.sh start</startCommand>
+		<stopCommand>/data/application/s10000/game.sh stop</stopCommand>
+		<restartCommand>/data/application/s10000/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-英文内网</name>
+		<domain>game</domain>
+		<host>139.199.222.89</host>
+		<port>22</port>
+		<username>root</username>
+		<password>GSvLqEH3W13IHEWd/lFZ8l1</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/kdyg_arpg/arpg_s5/socket/</uploadPath>
+		<startCommand>/data/kdyg_arpg/arpg_s5/game.sh start</startCommand>
+		<stopCommand>/data/kdyg_arpg/arpg_s5/game.sh stop</stopCommand>
+		<restartCommand>/data/kdyg_arpg/arpg_s5/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-外网英文s10000</name>
+		<domain>game</domain>
+		<host>107.155.56.123</host>
+		<port>21212</port>
+		<username>root</username>
+		<password>XiGjwwOLKswdsa1GOP3!</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/application/s10000/socket/</uploadPath>
+		<startCommand>/data/application/s10000/game.sh start</startCommand>
+		<stopCommand>/data/application/s10000/game.sh stop</stopCommand>
+		<restartCommand>/data/application/s10000/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-外网英文s10001</name>
+		<domain>game</domain>
+		<host>107.155.56.123</host>
+		<port>21212</port>
+		<username>root</username>
+		<password>XiGjwwOLKswdsa1GOP3!</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/application/s10001/socket/</uploadPath>
+		<startCommand>/data/application/s10001/game.sh start</startCommand>
+		<stopCommand>/data/application/s10001/game.sh stop</stopCommand>
+		<restartCommand>/data/application/s10001/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-兔兔专区英文s10001</name>
+		<domain>game</domain>
+		<host>49.51.84.245</host>
+		<port>21212</port>
+		<username>root</username>
+		<password>DuREU0nkoMq/Zq0ZE+eY5Q==</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/application/s10001/socket/</uploadPath>
+		<startCommand>/data/application/s10001/game.sh start</startCommand>
+		<stopCommand>/data/application/s10001/game.sh stop</stopCommand>
+		<restartCommand>/data/application/s10001/game.sh restart</restartCommand>
+</server>
+
+<server>
+		<name>口袋ARPG1.4-兔兔专区英文s10000</name>
+		<domain>game</domain>
+		<host>49.51.84.245</host>
+		<port>21212</port>
+		<username>root</username>
+		<password>DuREU0nkoMq/Zq0ZE+eY5Q==</password>
+		<localPath>./socket/</localPath>
+		<uploadPath>/data/application/s10000/socket/</uploadPath>
+		<startCommand>/data/application/s10000/game.sh start</startCommand>
+		<stopCommand>/data/application/s10000/game.sh stop</stopCommand>
+		<restartCommand>/data/application/s10000/game.sh restart</restartCommand>
+</server>
+
+</servers>
