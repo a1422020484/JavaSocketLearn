@@ -31,7 +31,7 @@ public class Schema implements ApplicationContextAware {
     public static List<Column> localColumns;
     public static List<Column> dbColumns;
 
-//    private static SchemaDAO schemaDAO;
+    private static SchemaDAO schemaDAO;
     private static String database;
 
     /**
@@ -69,8 +69,8 @@ public class Schema implements ApplicationContextAware {
 
     static void loadDBSchema() {
         try {
-//            database = schemaDAO.selectDatabase();
-//            dbColumns = schemaDAO.getColumns(database);
+            database = schemaDAO.selectDatabase();
+            dbColumns = schemaDAO.getColumns(database);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
@@ -136,6 +136,6 @@ public class Schema implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-//        schemaDAO = applicationContext.getBean(SchemaDAO.class);
+        schemaDAO = applicationContext.getBean(SchemaDAO.class);
     }
 }

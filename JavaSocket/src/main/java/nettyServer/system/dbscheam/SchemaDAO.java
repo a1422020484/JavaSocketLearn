@@ -2,10 +2,13 @@ package nettyServer.system.dbscheam;
 
 import java.util.List;
 
+import net.paoding.rose.jade.annotation.DAO;
+import net.paoding.rose.jade.annotation.SQL;
+
 /**
  * @author yangxp
  */
-//@DAO
+@DAO
 public interface SchemaDAO {
 
     String TABLE = "information_schema.columns";
@@ -14,9 +17,9 @@ public interface SchemaDAO {
             "EXTRA,COLUMN_TYPE,COLUMN_COMMENT,CHARACTER_SET_NAME," +
             "COLLATION_NAME";
 
-//    @SQL("SELECT " + FIELDS + " FROM information_schema.columns WHERE table_schema=:1")
+    @SQL("SELECT " + FIELDS + " FROM information_schema.columns WHERE table_schema=:1")
     List<Column> getColumns(String database);
 
-//    @SQL("SELECT DATABASE()")
+    @SQL("SELECT DATABASE()")
     String selectDatabase();
 }
