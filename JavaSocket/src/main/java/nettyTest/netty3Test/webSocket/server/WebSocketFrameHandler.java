@@ -41,26 +41,28 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
 
     private static final Logger logger = LoggerFactory.getLogger(WebSocketFrameHandler.class);
     static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
-    @Override
+
+	@Override
 	public void channelActive(final ChannelHandlerContext ctx) {
 		// Once session is secured, send a greeting and register the channel to
 		// the global channel
 		// list so the channel received the messages from others.
-    	if(ctx.pipeline().get(SslHandler.class) == null) {
-    		channels.writeAndFlush(new TextWebSocketFrame("Welcome to secure chat service!\n"));
+		if (ctx.pipeline().get(SslHandler.class) == null) {
+			channels.writeAndFlush(new TextWebSocketFrame("Welcome to secure chat service!\n"));
 			channels.add(ctx.channel());
-    	} else {
-    		ctx.pipeline().get(SslHandler.class).handshakeFuture().addListener(new GenericFutureListener<Future<Channel>>() {
-    			@Override
-    			public void operationComplete(Future<Channel> future) throws Exception {
-    				
-//				ctx.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
-//				ctx.writeAndFlush(new TextWebSocketFrame("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n"));
-    				channels.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
-    				channels.add(ctx.channel());
-    			}
-    		});
-    	}
+		} else {
+			ctx.pipeline().get(SslHandler.class).handshakeFuture().addListener(new GenericFutureListener<Future<Channel>>() {
+				@Override
+				public void operationComplete(Future<Channel> future) throws Exception {
+
+					// ctx.writeAndFlush(new TextWebSocketFrame("Welcome to " +
+					// InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
+					ctx.writeAndFlush(new TextWebSocketFrame("Your session is protected by " + ctx.pipeline().get(SslHandler.class).engine().getSession().getCipherSuite() + " cipher suite.\n"));
+					channels.writeAndFlush(new TextWebSocketFrame("Welcome to " + InetAddress.getLocalHost().getHostName() + " secure chat service!\n"));
+					channels.add(ctx.channel());
+				}
+			});
+		}
 	}
     
     @Override
