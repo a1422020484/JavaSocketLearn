@@ -111,11 +111,8 @@
 		</dependency>
 
 		<!-- mysql驱动包 -->
-		<!-- <dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.29</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<version>5.1.29</version> </dependency> -->
 		<!-- 添加数据库连接池依赖 -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -179,14 +176,14 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.3.6</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
 		<dependency>
-		    <groupId>org.aspectj</groupId>
-		    <artifactId>aspectjrt</artifactId>
-		    <version>1.9.1</version>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.9.1</version>
 		</dependency>
-		
+
 		<!-- GameServer专用Down -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -281,34 +278,43 @@
 			<version>1.1</version>
 		</dependency>
 		<!-- GameServer专用Up -->
-		
+
 		<!-- https://mvnrepository.com/artifact/com.jcraft.jsch/com.jcraft.jsch -->
-		<!-- 上传工具专用 begin-->
+		<!-- 上传工具专用 begin -->
 		<dependency>
-		    <groupId>com.jcraft</groupId>
-		    <artifactId>jsch</artifactId>
-		    <version>0.1.51</version>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.51</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.lingala.zip4j/zip4j -->
 		<dependency>
-		    <groupId>net.lingala.zip4j</groupId>
-		    <artifactId>zip4j</artifactId>
-		    <version>1.3.2</version>
+			<groupId>net.lingala.zip4j</groupId>
+			<artifactId>zip4j</artifactId>
+			<version>1.3.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/xmlpull/xmlpull -->
 		<dependency>
-		    <groupId>xmlpull</groupId>
-		    <artifactId>xmlpull</artifactId>
-		    <version>1.1.3.1</version>
+			<groupId>xmlpull</groupId>
+			<artifactId>xmlpull</artifactId>
+			<version>1.1.3.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/xpp3/xpp3_min -->
 		<dependency>
-		    <groupId>xpp3</groupId>
-		    <artifactId>xpp3_min</artifactId>
-		    <version>1.1.4c</version>
+			<groupId>xpp3</groupId>
+			<artifactId>xpp3_min</artifactId>
+			<version>1.1.4c</version>
 		</dependency>
-		<!-- 上传工具专用 end --> 
-
-		
+		<!-- 上传工具专用 end -->
+		<dependency>
+			<groupId>io.nats</groupId>
+			<artifactId>jnats</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<!-- nats end -->
+		<dependency>
+			<groupId>org.apache.rocketmq</groupId>
+			<artifactId>rocketmq-client</artifactId>
+			<version>4.3.0</version>
+		</dependency>
 	</dependencies>
 </project>
