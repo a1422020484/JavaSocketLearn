@@ -32,6 +32,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/protocol.jar"/>
+	<classpathentry kind="lib" path="lib/PokeDeploymentToolFX.jar" sourcepath="lib/PokeDeploymentToolFX.src.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

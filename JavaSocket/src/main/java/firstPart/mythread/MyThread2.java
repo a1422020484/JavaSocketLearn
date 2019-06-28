@@ -17,7 +17,7 @@ public class MyThread2 {
 }
 
 class MyThreadTest2 extends Thread {
-	private int count = 5;
+	private int count = 50;
 
 	@Override
 	public synchronized void run() {

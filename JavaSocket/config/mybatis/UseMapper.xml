@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="spring.myBatis.mapper.UserMapper">
 	<select id="getUsername" resultType="string">
-		select username from t_user2 t where t.userid = '24'
+		select name from user t where t.id = '24'
 	</select>
 
 	<insert id="saveUser" parameterType="java.util.Map">

@@ -29,6 +29,18 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
         </encoder>
     </appender>
+    
+    <appender name="game.runtimeabc" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LogHome}/runtimeabc/runtimeabc_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>365</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
     <!-- 记录保存失败的数据 -->
     <appender name="cache-bak" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -146,7 +158,7 @@
 
 
     <!-- 日志输出级别 -->
-    <root level="ERROR">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 
@@ -172,6 +184,10 @@
 
     <logger name="game.runtime" level="INFO" additivity="false">
         <appender-ref ref="game.runtime"/>
+    </logger>
+    
+    <logger name="game.runtimeabc" level="DEBUG" additivity="false">
+        <appender-ref ref="game.runtimeabc"/>
     </logger>
 
     <logger name="xzj.core" level="DEBUG" additivity="false">
