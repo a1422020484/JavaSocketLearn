@@ -25,12 +25,14 @@ public class HttpCorsServer {
 		}
 
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+		
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
 			ServerBootstrap b = new ServerBootstrap();
 			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).handler(new LoggingHandler(LogLevel.INFO)).childHandler(new HttpCorsServerInitializer(sslCtx));
 
 			b.bind(PORT).sync().channel().closeFuture().sync();
+			
 		} finally {
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
