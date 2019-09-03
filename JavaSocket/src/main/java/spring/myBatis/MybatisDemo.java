@@ -22,8 +22,11 @@ public class MybatisDemo {
 		inistrancedSpring();
 		inistrancedMybatis();
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
-		mybatisMgr.queryName();
-		WebSocketServer.inistrancedNetty();
+		mybatisMgr.queryName(5);
+		mybatisMgr.queryUser(6);
+		mybatisMgr.queryUser(6);
+//		mybatisMgr.queryAllUser();
+//		WebSocketServer.inistrancedNetty();
 	}
 
 	public static void inistrancedSpring() {
