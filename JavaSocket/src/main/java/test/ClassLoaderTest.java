@@ -26,5 +26,22 @@ public class ClassLoaderTest {
 		Object obj = myLoader.loadClass("test.ClassLoaderTest").newInstance();
 		System.out.println(obj.getClass());
 		System.out.println(obj instanceof test.ClassLoaderTest);
+		
+		ClassLoader classLoaderMy = myLoader.getParent();
+		System.out.println(classLoaderMy.getParent());
+		
+		ClassLoader classLoaderMy1 = classLoaderMy.getParent();
+		System.out.println(classLoaderMy1.getParent());
+		
+//		==========================================================================
+		
+		ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
+		System.out.println(classLoader);
+		
+		ClassLoader classLoader1 = classLoader.getParent();
+		System.out.println(classLoader1);
+		
+		ClassLoader classLoader2 = classLoader1.getParent();
+		System.out.println(classLoader2);
 	}
 }
