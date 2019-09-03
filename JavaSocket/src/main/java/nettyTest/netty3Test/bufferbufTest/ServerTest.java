@@ -4,6 +4,7 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -43,6 +44,7 @@ public class ServerTest {
 					p.addLast(new ServerHandler());
 				}
 			});
+			b.childOption(ChannelOption.SO_REUSEADDR, true);
 			b.bind(8800).sync().channel().closeFuture().sync();
 		} finally {
 			bossGroup.shutdownGracefully();

@@ -12,7 +12,7 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 public class ProducerDemo {
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "10.0.0.66:9092");
+		props.put("bootstrap.servers", "192.168.96.129:9092");
 		props.put("acks", "all");
 		props.put("retries", 0);
 		props.put("batch.size", 16384);

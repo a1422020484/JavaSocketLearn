@@ -11,7 +11,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 public class ConsumerDemo {
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "10.0.0.66:9092");
+		props.put("bootstrap.servers", "192.168.96.129:9092");
 		props.put("group.id", "testyangxp3");
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
