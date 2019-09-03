@@ -9,6 +9,21 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 
 public class OkResponseHandler extends SimpleChannelInboundHandler<Object> {
+
+	
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		// TODO Auto-generated method stub
+		super.channelActive(ctx);
+		System.out.println("OkResponseHandler ========== channelActive");
+	}
+	
+	@Override
+	public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+		super.channelRegistered(ctx);
+		System.out.println("OkResponseHandler ========== channelRegistered");
+	}
+
 	@Override
 	public void channelRead0(ChannelHandlerContext ctx, Object msg) {
 		final FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
