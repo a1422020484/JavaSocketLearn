@@ -12,11 +12,11 @@ public class Demo1 {
 
 	public static void main(String[] args) {
 		// Demo1.doCachedThreadPool();
-		// Demo1.doFixedThreadPool();
+		 Demo1.doFixedThreadPool();
 		// Demo1.doScheduledThreadPool();
 		// Demo1.doSingleThreadExecutor();
 		// submitTest();
-		submitCallableTest();
+//		submitCallableTest();
 		System.out.println("after main ");
 	}
 
@@ -42,7 +42,7 @@ public class Demo1 {
 		}
 		cachedExecutorService.shutdown();
 	}
-
+	
 	/**
 	 * 创建一个固定个数的线程池
 	 */
@@ -53,7 +53,7 @@ public class Demo1 {
 			fixedThreadPool.execute(new Runnable() {
 				public void run() {
 					try {
-						System.out.println(index);
+						System.out.println(Thread.currentThread().getName() + " === " + index);
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -61,7 +61,7 @@ public class Demo1 {
 				}
 			});
 		}
-		fixedThreadPool.shutdown();
+//		fixedThreadPool.shutdown();
 	}
 
 	/**
