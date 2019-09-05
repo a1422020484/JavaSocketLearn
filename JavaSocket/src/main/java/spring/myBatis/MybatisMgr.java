@@ -42,6 +42,14 @@ public class MybatisMgr {
 		userMapper.updateOneUserName(user);
 	}
 	
+	public void insertOneUser(User user) {
+		userMapper.insertOneUser(user);
+	}
+	
+	public void insertMoreUser(List<User> userList) {
+		userMapper.insertMoreUser(userList);
+	}
+	
 	public void queryNameCached(int id) {
 		System.out.println(userMapperCached.getName(id));
 	};

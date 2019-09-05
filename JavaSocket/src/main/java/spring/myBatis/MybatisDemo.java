@@ -51,6 +51,10 @@ public class MybatisDemo {
 		
 		mybatisMgr.queryNameTest(1);
 		
+		User userNew1 = new User();
+		userNew1.setId(5);
+		userNew1.setName("zz");
+		
 //		WebSocketServer.inistrancedNetty();
 	}
 
