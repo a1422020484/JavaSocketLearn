@@ -13,18 +13,46 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import nettyTest.netty3Test.webSocket.server.WebSocketServer;
+import spring.po.Role;
+import spring.po.User;
 
 public class MybatisDemo {
 
 	private static ApplicationContext context;
+	
+	static {
+		System.setProperty("net.sf.ehcache.skipUpdateCheck", "true");
+	}
 
 	public static void main(String[] args) throws Exception {
 		inistrancedSpring();
 		inistrancedMybatis();
+//		Thread.sleep(1000);
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
-		mybatisMgr.queryName(5);
-		mybatisMgr.queryUser(6);
-		mybatisMgr.queryUser(6);
+//		mybatisMgr.queryName(6);
+		System.out.println(System.getProperty("net.sf.ehcache.debug.updatecheck"));
+		User user = new User();
+		user.setId(5);
+		user.setName("zz");
+//		mybatisMgr.updateOneUserName(user);
+		
+		
+//		mybatisMgr.queryName(6);
+		
+//		mybatisMgr.queryNameCached(6);
+//		mybatisMgr.queryNameCached(6);
+		
+//		使用注解的方式验证二级缓存
+//		User user1 = mybatisMgr.queryUserCachedById(6);
+//		System.out.println(user1);
+//		User user2 = mybatisMgr.queryUserCachedById(6);
+//		System.out.println(user2);
+		
+//		使用eheache插件做缓存架构
+		Role role = mybatisMgr.queryRoleCachedById(1);
+		System.out.println(role);
+		Role role2 = mybatisMgr.queryRoleCachedById(1);
+		System.out.println(role2);
 //		mybatisMgr.queryAllUser();
 //		WebSocketServer.inistrancedNetty();
 	}
