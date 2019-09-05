@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import spring.myBatis.mapper.RoleMapperEhcache;
 import spring.myBatis.mapper.UserMapper;
 import spring.myBatis.mapper.UserMapperCached;
+import spring.myBatis.mapperTest.UserMapperTest;
 import spring.po.Role;
 import spring.po.User;
 
@@ -20,6 +21,8 @@ public class MybatisMgr {
 	private UserMapperCached userMapperCached;
 	@Autowired
 	private RoleMapperEhcache roleMapperEhcache;
+	@Autowired
+	private UserMapperTest userMapperTest;
 
 	public void queryName(int id) {
 		System.out.println(userMapper.getName(id));
@@ -50,4 +53,8 @@ public class MybatisMgr {
 	public Role queryRoleCachedById(int id) {
 		return roleMapperEhcache.queryRoleById(id);
 	}
+	
+	public void queryNameTest(int id) {
+		System.out.println(userMapperTest.getNameTest(id));
+	};
 }

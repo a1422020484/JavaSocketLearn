@@ -29,17 +29,12 @@ public class MybatisDemo {
 		inistrancedMybatis();
 //		Thread.sleep(1000);
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
-//		mybatisMgr.queryName(6);
-		System.out.println(System.getProperty("net.sf.ehcache.debug.updatecheck"));
+		mybatisMgr.queryName(6);
 		User user = new User();
 		user.setId(5);
 		user.setName("zz");
 //		mybatisMgr.updateOneUserName(user);
-		
-		
 //		mybatisMgr.queryName(6);
-		
-//		mybatisMgr.queryNameCached(6);
 //		mybatisMgr.queryNameCached(6);
 		
 //		使用注解的方式验证二级缓存
@@ -49,11 +44,13 @@ public class MybatisDemo {
 //		System.out.println(user2);
 		
 //		使用eheache插件做缓存架构
-		Role role = mybatisMgr.queryRoleCachedById(1);
-		System.out.println(role);
-		Role role2 = mybatisMgr.queryRoleCachedById(1);
-		System.out.println(role2);
-//		mybatisMgr.queryAllUser();
+//		Role role = mybatisMgr.queryRoleCachedById(1);
+//		System.out.println(role);
+//		Role role2 = mybatisMgr.queryRoleCachedById(1);
+//		System.out.println(role2);
+		
+		mybatisMgr.queryNameTest(1);
+		
 //		WebSocketServer.inistrancedNetty();
 	}
 

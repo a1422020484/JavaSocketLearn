@@ -71,4 +71,34 @@
 		<property name="basePackage" value="spring.myBatis.mapper"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
+	
+	<!-- 配置第二份DB 数据  -->
+	<bean id="dataSourceTest" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${test.url}" />
+		<property name="username" value="${test.username}" />
+		<property name="password" value="${test.password}" />
+		<property name="maxActive" value="30" />
+		<property name="maxIdle" value="5" />
+	</bean>
+	<!-- sqlSessionFactory -->
+	<bean id="sqlSessionFactoryTest" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 数据库连接池 -->
+		<property name="dataSource" ref="dataSourceTest" />
+		<!-- 加载mybatis的全局配置文件 -->
+		<property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml" />
+		<property name="mapperLocations" value="classpath*:mybatis/*MapperTest.xml" />
+	</bean>
+	<!-- mapper扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+		<property name="basePackage" value="spring.myBatis.mapperTest"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryTest" />
+	</bean>
+	<bean id="transactionManagerTest"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTest" />
+	</bean>
+	
 </beans>
