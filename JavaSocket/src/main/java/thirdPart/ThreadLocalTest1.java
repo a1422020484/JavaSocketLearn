@@ -26,9 +26,12 @@ public class ThreadLocalTest1 {
 //			}
 //
 //		}).start();
-		User user1T = local.get();
+		local.get().setName("ff1");;
+		local2.get().setName("ff2");;
+		User user1T1 = local.get();
 		User user1T2 = local2.get();
-		System.out.println(user1T.getName());
+		System.out.println(user1T1.getName());
+		System.out.println(user1T2.getName());
 
 	}
 
