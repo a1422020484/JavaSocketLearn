@@ -12,6 +12,16 @@ public class User implements Serializable{
 	private String password;
 	private String role;
 	
+	public static User buildUser() {
+		User user = new User();
+		user.name = "tt";
+		user.age = 5;
+		user.email = "tt";
+		user.password = "tt";
+		user.role = "tt";
+		return user;
+	}
+	
 	public int getId() {
 		return id;
 	}

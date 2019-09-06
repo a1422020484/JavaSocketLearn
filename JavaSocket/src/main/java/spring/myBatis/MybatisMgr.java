@@ -42,8 +42,8 @@ public class MybatisMgr {
 		userMapper.updateOneUserName(user);
 	}
 	
-	public void insertOneUser(User user) {
-		userMapper.insertOneUser(user);
+	public int insertOneUser(User user) {
+		return userMapper.insertOneUser(user);
 	}
 	
 	public void insertMoreUser(List<User> userList) {

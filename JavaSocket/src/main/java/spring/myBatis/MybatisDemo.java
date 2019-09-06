@@ -3,6 +3,8 @@ package spring.myBatis;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,8 +14,6 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import nettyTest.netty3Test.webSocket.server.WebSocketServer;
-import spring.po.Role;
 import spring.po.User;
 
 public class MybatisDemo {
@@ -29,7 +29,7 @@ public class MybatisDemo {
 		inistrancedMybatis();
 //		Thread.sleep(1000);
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
-		mybatisMgr.queryName(6);
+//		mybatisMgr.queryName(6);
 		User user = new User();
 		user.setId(5);
 		user.setName("zz");
@@ -49,11 +49,25 @@ public class MybatisDemo {
 //		Role role2 = mybatisMgr.queryRoleCachedById(1);
 //		System.out.println(role2);
 		
-		mybatisMgr.queryNameTest(1);
+//		第二个数据库连接测试
+//		mybatisMgr.queryNameTest(1);
 		
-		User userNew1 = new User();
-		userNew1.setId(5);
-		userNew1.setName("zz");
+//		单个数据插入测试
+//		User userNew1 = new User();
+//		userNew1.setName("yang");
+//		userNew1.setPassword("ff");
+//		userNew1.setAge(88);
+//		userNew1.setEmail("test");
+//		userNew1.setRole("admin");
+//		
+//		System.out.println(mybatisMgr.insertOneUser(userNew1));// 插入的条数
+//		System.out.println(userNew1.getId());// 返回刚才出入最新数据的主键
+		
+		List<User> userAddList = new ArrayList<>();
+		userAddList.add(User.buildUser());
+		userAddList.add(User.buildUser());
+		userAddList.add(User.buildUser());
+		mybatisMgr.insertMoreUser(userAddList);
 		
 //		WebSocketServer.inistrancedNetty();
 	}
