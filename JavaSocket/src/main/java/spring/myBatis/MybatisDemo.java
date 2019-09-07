@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -25,14 +27,14 @@ public class MybatisDemo {
 	}
 
 	public static void main(String[] args) throws Exception {
-		inistrancedSpring();
-		inistrancedMybatis();
+//		inistrancedSpring();
+//		inistrancedMybatis();
 //		Thread.sleep(1000);
+		MybatisDemo md = new MybatisDemo();
+		md.inistrancedSpring();
+		md.inistrancedMybatis();
 		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
 //		mybatisMgr.queryName(6);
-		User user = new User();
-		user.setId(5);
-		user.setName("zz");
 //		mybatisMgr.updateOneUserName(user);
 //		mybatisMgr.queryName(6);
 //		mybatisMgr.queryNameCached(6);
@@ -53,31 +55,27 @@ public class MybatisDemo {
 //		mybatisMgr.queryNameTest(1);
 		
 //		单个数据插入测试
-//		User userNew1 = new User();
-//		userNew1.setName("yang");
-//		userNew1.setPassword("ff");
-//		userNew1.setAge(88);
-//		userNew1.setEmail("test");
-//		userNew1.setRole("admin");
-//		
-//		System.out.println(mybatisMgr.insertOneUser(userNew1));// 插入的条数
-//		System.out.println(userNew1.getId());// 返回刚才出入最新数据的主键
+		User userNewOne = User.buildUser();
+		System.out.println(mybatisMgr.insertOneUserTransaction(userNewOne));// 插入的条数
+		System.out.println(userNewOne.getId());// 返回刚才出入最新数据的主键
 		
-		List<User> userAddList = new ArrayList<>();
-		userAddList.add(User.buildUser());
-		userAddList.add(User.buildUser());
-		userAddList.add(User.buildUser());
-		mybatisMgr.insertMoreUser(userAddList);
+//		多个数据同时插入
+//		List<User> userAddList = new ArrayList<>();
+//		userAddList.add(User.buildUser());
+//		userAddList.add(User.buildUser());
+//		userAddList.add(User.buildUser());
+//		mybatisMgr.insertMoreUser(userAddList);
 		
 //		WebSocketServer.inistrancedNetty();
 	}
-
-	public static void inistrancedSpring() {
+	@Before
+	public void inistrancedSpring() {
 		context = new ClassPathXmlApplicationContext("classpath:mybatis/mybatis-spring.xml");// 此文件放在SRC目录下
 
 	}
 
-	public static void inistrancedMybatis() throws IOException {
+	@Before
+	public void inistrancedMybatis() throws IOException {
 		String resource = "mybatis/mybatis-single.xml";
 		Reader reader = Resources.getResourceAsReader(resource);
 		SqlSessionFactory sqlMapper = new SqlSessionFactoryBuilder().build(reader);
@@ -85,6 +83,14 @@ public class MybatisDemo {
 		TransactionFactory transactionFactory = new JdbcTransactionFactory();
 		Connection conn = null;
 		transactionFactory.newTransaction(conn);
+	}
+	
+	@Test
+	public void transactionInsertTest() {
+		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
+		User userNewOne = User.buildUser();
+		System.out.println(mybatisMgr.insertOneUserTransaction(userNewOne));// 插入的条数
+		System.out.println(userNewOne.getId());// 返回刚才出入最新数据的主键
 	}
 
 }

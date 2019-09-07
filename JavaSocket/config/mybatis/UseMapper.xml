@@ -20,9 +20,9 @@
 		insert into
 			user(name,age, email,password, role)
 			values(#{name}, #{age}, #{email}, #{password}, #{role})
-			<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			<!-- <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
 				select LAST_INSERT_ID()
-			</selectKey>
+			</selectKey> -->
 	</insert>
 <!-- 	<insert id="insertOneUser" parameterType="java.util.Map">
 		insert into t_user2

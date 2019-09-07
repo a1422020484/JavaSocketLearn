@@ -12,10 +12,10 @@ public class Demo1 {
 
 	public static void main(String[] args) {
 		// Demo1.doCachedThreadPool();
-		 Demo1.doFixedThreadPool();
+//		 Demo1.doFixedThreadPool();
 		// Demo1.doScheduledThreadPool();
-		// Demo1.doSingleThreadExecutor();
-		// submitTest();
+//		 Demo1.doSingleThreadExecutor();
+		 submitTest();
 //		submitCallableTest();
 		System.out.println("after main ");
 	}
@@ -71,16 +71,25 @@ public class Demo1 {
 		ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
 		scheduledExecutorService.schedule(new Runnable() {
 			public void run() {
-				System.out.println("delay 3 seconds");
+				System.out.println("delay 10 seconds");
+				try {
+					Thread.sleep(10000);
+					System.out.println("delay 20 seconds end");
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		}, 3, TimeUnit.SECONDS);
-		scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
-
-			@Override
-			public void run() {
-				System.out.println("delay 1 seconds and execute every 3 times");
-			}
-		}, 1, 1, TimeUnit.SECONDS);
+		}, 10, TimeUnit.SECONDS);
+		scheduledExecutorService.shutdown();
+		System.out.println("doScheduledThreadPool shutdown");
+//		scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
+//
+//			@Override
+//			public void run() {
+//				System.out.println("delay 1 seconds and execute every 3 times");
+//			}
+//		}, 1, 1, TimeUnit.SECONDS);
 	}
 
 	/**
@@ -112,6 +121,8 @@ public class Demo1 {
 				doScheduledThreadPool();
 			}
 		});
+		singleThreadExecutor.shutdown();
+		System.out.println("submitTest shutdown");
 	}
 
 	public static void submitCallableTest() {

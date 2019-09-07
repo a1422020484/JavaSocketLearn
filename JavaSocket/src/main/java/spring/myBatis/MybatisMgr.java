@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 
 import spring.myBatis.mapper.RoleMapperEhcache;
 import spring.myBatis.mapper.UserMapper;
@@ -41,9 +42,19 @@ public class MybatisMgr {
 	public void updateOneUserName(User user) {
 		userMapper.updateOneUserName(user);
 	}
-	
 	public int insertOneUser(User user) {
 		return userMapper.insertOneUser(user);
+	}
+	
+//	使用注解的spring 事务管理测试
+	@Transactional
+	public int insertOneUserTransaction(User user) {
+		int insertNum = 0;
+		insertNum = userMapper.insertOneUser(user);
+		if(insertNum == 1) {
+			throw new RuntimeException("test");//抛出unchecked异常，触发事物，回滚
+		}
+		return insertNum;
 	}
 	
 	public void insertMoreUser(List<User> userList) {
