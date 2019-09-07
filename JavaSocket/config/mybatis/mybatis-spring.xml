@@ -56,7 +56,7 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<!-- 开启事务控制的注解支持 -->
+	<!-- 开启事务控制的注解支持，如果关闭，即使添加注解也没用 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<!-- sqlSessionFactory -->

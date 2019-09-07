@@ -12,6 +12,13 @@ public class Role implements Serializable {
 	private String role_name;
 	private String permission;
 
+	public static Role build() {
+		Role role = new Role();
+		role.setRole_name("mmmstr");
+		role.setPermission("yang master");
+		return role;
+	}
+	
 	public int getId() {
 		return id;
 	}

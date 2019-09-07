@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import spring.myBatis.mapper.RoleMapperEhcache;
@@ -75,5 +76,18 @@ public class MybatisMgr {
 	
 	public void queryNameTest(int id) {
 		System.out.println(userMapperTest.getNameTest(id));
+	}
+
+	public void insertOneRole(Role role) {
+		roleMapperEhcache.insertOneRole(role);
+	}
+	
+	@Transactional
+	public void insertOneUserPropagationTransaction(User user, Role role) {
+		int i = insertOneUser(user);
+		if(i == 1) {
+			throw new RuntimeException("propagation"); 
+		}
+		insertOneUser(user);
 	};
 }

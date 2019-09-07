@@ -16,6 +16,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import spring.po.Role;
 import spring.po.User;
 
 public class MybatisDemo {
@@ -93,4 +94,10 @@ public class MybatisDemo {
 		System.out.println(userNewOne.getId());// 返回刚才出入最新数据的主键
 	}
 
+	@Test
+	public void transactionPropagationTest() {
+		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
+		User userNewOne = User.buildUser();
+		mybatisMgr.insertOneUserPropagationTransaction(userNewOne, Role.build());// 插入的条数
+	}
 }
