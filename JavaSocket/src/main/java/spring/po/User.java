@@ -1,12 +1,26 @@
 package spring.po;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
 	private int age;
 	private String email;
 	private String password;
 	private String role;
+	
+	public static User buildUser() {
+		User user = new User();
+		user.name = "tt";
+		user.age = 5;
+		user.email = "tt";
+		user.password = "tt";
+		user.role = "tt";
+		return user;
+	}
 	
 	public int getId() {
 		return id;
