@@ -41,6 +41,27 @@
 	<mvc:resources location="/res/" mapping="/res/**" />
 	<mvc:resources location="/swagger-editor/" mapping="/swagger-editor/**" /> -->
 
+	
+	<!-- 通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	 	<tx:attributes>
+	 		<tx:method name="add*" propagation="REQUIRED"/>
+	 		<tx:method name="save*" propagation="REQUIRED"/>
+	 		<tx:method name="insert*" propagation="REQUIRED"/>
+	 		<tx:method name="update*" propagation="REQUIRED"/>
+	 		<tx:method name="find*" propagation="NOT_SUPPORTED" read-only="true"/>
+	 		<tx:method name="select*" propagation="NOT_SUPPORTED" read-only="true"/>
+	 		<tx:method name="get*" propagation="NOT_SUPPORTED" read-only="true"/>
+	 		<tx:method name="load*" propagation="NOT_SUPPORTED" read-only="true" />
+	 		<tx:method name="search*" propagation="NOT_SUPPORTED" read-only="true" />
+	 	</tx:attributes>
+	 </tx:advice>
+ 
+	 <!-- aop事务代理 -->
+	 <aop:config>
+	 	<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.com.wp.**.serviceImpl.*.*(..))"/>
+	 </aop:config>
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}" />

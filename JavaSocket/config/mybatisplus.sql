@@ -15,7 +15,7 @@ MySQL - 5.7.17 : Database - mybatisplus
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`mybatisplus` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 /*Table structure for table `permission` */
-
+USE `mybatisplus`;
 CREATE TABLE `permission` (
   `id` int(10) NOT NULL,
   `permission` varchar(50) DEFAULT NULL,

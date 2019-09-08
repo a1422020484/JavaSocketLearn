@@ -11,5 +11,6 @@ public class Boos {
 	
 	public void test(){
 		System.out.println(helloWorld.getUsernameString());
+		System.out.println(helloWorld);
 	}
 }

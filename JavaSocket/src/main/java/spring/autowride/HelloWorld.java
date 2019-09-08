@@ -7,10 +7,10 @@ public class HelloWorld {
 
 	public HelloWorld() {
 		System.out.println("helloworld intializer");
-		setUsernameString("t");
+		System.out.println(usernameString);
 	}
 
-	private String usernameString = "";
+	public String usernameString = "";
 
 	public String getUsernameString() {
 		return usernameString;
