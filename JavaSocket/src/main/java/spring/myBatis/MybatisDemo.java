@@ -100,4 +100,12 @@ public class MybatisDemo {
 		User userNewOne = User.buildUser();
 		mybatisMgr.insertOneUserPropagationTransaction(userNewOne, Role.build());// 插入的条数
 	}
+	
+	// PROPAGATION_REQUIRES_NEW
+	@Test
+	public void transactionPropagationRN() {
+		MybatisMgr mybatisMgr = (MybatisMgr) context.getBean("mybatisMgr");
+		User userNewOne = User.buildUser();
+		mybatisMgr.insertOneUserPRNT(userNewOne);// 插入的条数
+	}
 }

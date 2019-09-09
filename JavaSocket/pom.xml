@@ -252,7 +252,7 @@
 			<version>2.8.1</version>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>3rd</groupId>
 			<artifactId>paoding-rose-scanning</artifactId>
 			<version>1.0.1</version>
@@ -266,7 +266,7 @@
 			<groupId>3rd</groupId>
 			<artifactId>bccs-api</artifactId>
 			<version>3.0.1</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>commons-jexl</groupId>
 			<artifactId>commons-jexl</artifactId>

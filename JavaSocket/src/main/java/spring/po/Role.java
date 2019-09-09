@@ -15,7 +15,7 @@ public class Role implements Serializable {
 	public static Role build() {
 		Role role = new Role();
 		role.setRole_name("mmmstr");
-		role.setPermission("yang master");
+		role.setPermission("yang maste");
 		return role;
 	}
 	

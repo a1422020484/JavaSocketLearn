@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import spring.myBatis.mapper.RoleMapper;
 import spring.myBatis.mapper.RoleMapperEhcache;
 import spring.myBatis.mapper.UserMapper;
 import spring.myBatis.mapper.UserMapperCached;
@@ -23,6 +24,8 @@ public class MybatisMgr {
 	private UserMapperCached userMapperCached;
 	@Autowired
 	private RoleMapperEhcache roleMapperEhcache;
+	@Autowired
+	private RoleMapper roleMapper;
 	@Autowired
 	private UserMapperTest userMapperTest;
 
@@ -52,9 +55,9 @@ public class MybatisMgr {
 	public int insertOneUserTransaction(User user) {
 		int insertNum = 0;
 		insertNum = userMapper.insertOneUser(user);
-		if(insertNum == 1) {
-			throw new RuntimeException("test");//抛出unchecked异常，触发事物，回滚
-		}
+//		if(insertNum == 1) {
+//			throw new RuntimeException("test");//抛出unchecked异常，触发事物，回滚
+//		}
 		return insertNum;
 	}
 	
@@ -77,9 +80,24 @@ public class MybatisMgr {
 	public void queryNameTest(int id) {
 		System.out.println(userMapperTest.getNameTest(id));
 	}
-
-	public void insertOneRole(Role role) {
+	
+	@Transactional
+	public void insertOneRoleCache(Role role) {
 		roleMapperEhcache.insertOneRole(role);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	@Transactional(propagation = Propagation.NEVER)
+	public void insertOneRole(Role role) {
+		roleMapper.insertOneRole(role);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Transactional
@@ -89,5 +107,13 @@ public class MybatisMgr {
 			throw new RuntimeException("propagation"); 
 		}
 		insertOneUser(user);
+	}
+	
+	@Transactional(propagation = Propagation.NEVER)
+	public void insertOneUserPRNT(User userNewOne) {
+		int i = insertOneUser(userNewOne);
+		insertOneRole(Role.build());
+		userNewOne.setName("eddd");
+		insertOneUser(userNewOne);
 	};
 }

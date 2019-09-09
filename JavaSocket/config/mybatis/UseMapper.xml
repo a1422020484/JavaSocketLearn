@@ -16,11 +16,11 @@
 		select * from user
 	</select>
 
-	<insert id="insertOneUser" parameterType="spring.po.User" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertOneUser" parameterType="spring.po.User">
 		insert into
 			user(name,age, email,password, role)
 			values(#{name}, #{age}, #{email}, #{password}, #{role})
-			<!-- <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			<!-- <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
 				select LAST_INSERT_ID()
 			</selectKey> -->
 	</insert>
