@@ -20,8 +20,8 @@ public class RedisUtils {
 	public static final int lockTimeoutS = 1;
 
 	public static void init() {
-		jedis = new Jedis("10.0.0.66", 6379, 1000);
-//		jedis.auth("rootroot");
+		jedis = new Jedis("192.168.96.140", 9010, 1000);
+		jedis.auth("yangxp");
 		System.out.println("连接成功");
 		// 查看服务是否运行
 		System.out.println("服务正在运行: " + jedis.ping());

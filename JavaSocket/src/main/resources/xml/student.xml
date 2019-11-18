@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<studentList>
+	<student>
+		<id>01</id>
+		<name>小明</name>
+		<age>19</age>
+		<gender>man</gender>
+		<!-- <score>
+			<subject name="Advanced Mathematics">90</subject>
+			<subject name="College English">85</subject>
+			<subject name="C++Programming">88</subject>
+		</score> -->
+	</student>
+	<student>
+		<id>02</id>
+		<name>小红</name>
+		<age>20</age>
+		<gender>woman</gender>
+		<!-- <score>
+			<subject name="Data Structure">80</subject>
+			<subject name="JavaProgramming">90</subject>
+		</score> -->
+	</student>
+</studentList>
