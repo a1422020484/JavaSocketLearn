@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class FutrueTaskTest {
+public class FutrueTaskTest1 {
 	
 	public static void main(String[] args) {
 		ExecutorService executor = Executors.newCachedThreadPool();
@@ -14,15 +14,16 @@ public class FutrueTaskTest {
 		Future<Integer> result = executor.submit(task);
 		executor.shutdown();
 
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e1) {
+//			e1.printStackTrace();
+//		}
 
-		System.out.println("主线程在执行任务");
+		System.out.println("主线程在执行任务 1s结束");
 
 		try {
+			result.cancel(true);
 			System.out.println("task运行结果" + result.get());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
