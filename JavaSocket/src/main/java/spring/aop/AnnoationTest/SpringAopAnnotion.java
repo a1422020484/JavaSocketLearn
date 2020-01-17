@@ -9,7 +9,6 @@ import spring.aop.user.Boss;
 @Controller
 public class SpringAopAnnotion {
 	
-	
 	public void aopDemo() {
 		System.out.println("SpringAopAnnotion  --- ");
 	}
