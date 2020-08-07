@@ -27,13 +27,13 @@ public class ServerDemo1 {
 			@Override
 			protected void initChannel(SocketChannel ch) throws Exception {
 				ChannelPipeline p = ch.pipeline();
-				p.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
+//				p.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
 				p.addLast("decoder", new StringDecoder());
 				p.addLast("encoder", new StringEncoder());
 				p.addLast(new ServerHandlerDemo1A());
 			}
 
-		}).option(ChannelOption.SO_BACKLOG, 128).childOption(ChannelOption.SO_KEEPALIVE, true);
+		}).option(ChannelOption.SO_BACKLOG, 128);
 		try {
 			b.bind(8800).sync().channel().closeFuture().sync();
 		} catch (InterruptedException e) {

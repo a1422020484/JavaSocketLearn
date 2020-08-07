@@ -15,9 +15,9 @@ public class SentinelTest {
 		Config config = new Config();
 		
 		config.useSentinelServers()
-			.addSentinelAddress("redis://192.168.96.140:16000")
-			.addSentinelAddress("redis://192.168.96.140:16001")
-			.addSentinelAddress("redis://192.168.96.140:16002")
+			.addSentinelAddress("redis://192.168.96.140:9001")
+			.addSentinelAddress("redis://192.168.96.140:9002")
+			.addSentinelAddress("redis://192.168.96.140:9003")
 			.setPassword("yangxp").setMasterName("macrog-master");
 		//创建客户端(发现这一非常耗时，基本在2秒-4秒左右)  
 		

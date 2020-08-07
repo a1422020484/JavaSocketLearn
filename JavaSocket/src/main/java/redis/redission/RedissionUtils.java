@@ -41,12 +41,12 @@ public class RedissionUtils {
 		//如果key存在，就设置key的值为新值value  
 		//如果key不存在，就设置key的值为value  
 //		keyObject.set("value");  
-		for (int i = 0; i < 10; i++) {
-			RBucket<String> keyObject = redissionClient.getBucket("key" + i);  
-			keyObject.set("value" + i);  
-		}
-		//最后关闭RedissonClient  
-		redissionClient.shutdown();  
+//		for (int i = 0; i < 10; i++) {
+//			RBucket<String> keyObject = redissionClient.getBucket("ffkey1" + i);  
+//			keyObject.set("value" + i);  
+//		}
+//		//最后关闭RedissonClient  
+//		redissionClient.shutdown();  
 		return redissionClient;
 	}
 

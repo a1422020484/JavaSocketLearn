@@ -24,7 +24,7 @@ public class ClientDemo1 {
 			@Override
 			protected void initChannel(SocketChannel ch) throws Exception {
 				ChannelPipeline p = ch.pipeline();
-				p.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
+//				p.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
 				p.addLast("decoder", new StringDecoder());
 				p.addLast("encoder", new StringEncoder());
 				p.addLast(new ClientHandlerDemo1());
@@ -34,6 +34,8 @@ public class ClientDemo1 {
 			ChannelFuture future = b.connect("127.0.0.1", 8800).sync();
 			future.channel().writeAndFlush("Hello Netty Server ,I am a common client");
 			future.channel().closeFuture().sync();
+			
+			group.shutdownGracefully();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

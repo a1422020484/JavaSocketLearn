@@ -8,7 +8,7 @@ import org.redisson.config.Config;
 public class SingleTest {
 	public static void main(String[] args) {
 		Config config = new Config();
-		config.useSingleServer().setAddress("redis://192.168.96.140:9011").setPassword("yangxp");
+		config.useSingleServer().setAddress("redis://192.168.96.140:9001").setPassword("yangxp");
 		
 		RedissonClient redissionClient = Redisson.create(config);
 		
