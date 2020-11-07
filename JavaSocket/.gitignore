@@ -2,7 +2,6 @@
 .project
 .classpath
 /.settings/
-/.idea/
 *.iml
 *.class
 
