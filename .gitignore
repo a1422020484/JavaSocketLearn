@@ -1,6 +1,5 @@
-/target
-/.project
-/.classpath
-/.settings
-/.idea/
+JavaSocket/target
+JavaSocket/.project
+JavaSocket/.classpath
+JavaSocket/.idea/
 
