@@ -22,6 +22,7 @@ public class CodeServerHandler extends ChannelInboundHandlerAdapter {
 	// 连接成功后，向server发送消息
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		System.out.println("server" + ctx.channel().id().asLongText());
 		System.out.println("==============channel--active==============");
 		System.out.println("向客户端端写入 String 2000数字");
 		ctx.writeAndFlush(new Integer(2000));
