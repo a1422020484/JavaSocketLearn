@@ -2,11 +2,19 @@ package nettyTest.netty3Test.factorial;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelPromise;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 import java.math.BigInteger;
+import java.net.SocketAddress;
 
 public class NumberEncoder extends MessageToByteEncoder<Number>  {
+
+	@Override
+	public void bind(ChannelHandlerContext ctx, SocketAddress localAddress, ChannelPromise promise) throws Exception {
+		super.bind(ctx, localAddress, promise);
+	}
+
 	@Override
 	protected void encode(ChannelHandlerContext ctx, Number msg, ByteBuf out) {
 		// Convert to a BigInteger first for easier implementation.

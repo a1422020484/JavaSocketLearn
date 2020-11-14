@@ -19,8 +19,11 @@ import io.netty.handler.timeout.IdleStateHandler;
 
 public class HeartBeatClient {
 
+	public static EventLoopGroup group;
+
 	public static void main(String[] args) throws Exception {
 		EventLoopGroup group = new NioEventLoopGroup();
+		HeartBeatClient.group = group;
 		connect(group);
 	}
 
@@ -39,6 +42,7 @@ public class HeartBeatClient {
 				}
 			});
 
+//			Runtime.getRuntime().addShutdownHook(new ShotDownHookNet());
 			future = b.connect("127.0.0.1", 8800).sync();
 			future.channel().closeFuture().sync();
 		} finally {
@@ -54,6 +58,15 @@ public class HeartBeatClient {
 			connect(group);
 			System.out.println("重连成功");
 
+
+		}
+	}
+
+	static class ShotDownHookNet extends Thread{
+		@Override
+		public void run() {
+			HeartBeatClient.group.shutdownGracefully();
+			System.out.println("client shutdown graceFully");
 		}
 	}
 }
