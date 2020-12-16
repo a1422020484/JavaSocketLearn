@@ -1,0 +1,47 @@
+//同步类型枚举
+enum FrameSyncDataType{
+    COMMON_UNKNOW_SYNCTYPE = 0 ;
+    FRAME_SYNC_CONNECT = 1;//连接
+    FRAME_SYNC_READY = 2;//预备
+    FRAME_SYNC_START = 3;//开始
+    FRAME_SYNC_CHANGE_POS = 4;//同步位置
+    FRAME_SYNC_PLAY_SKILL = 5;//同步释放技能
+    FRAME_SYNC_MOVE_START = 6;//同步开始移动操作
+    FRAME_SYNC_MOVE_SPEED = 7;//同步移动操作速度
+    FRAME_SYNC_MOVE_END = 8;//同步停止移动操作
+    FRAME_SYNC_END = 22;//结束
+}
+message SyncMechaInfo{
+    optional int32 zoneId = 1 [default = 0];
+    optional int32 playerId = 2 [default = 0];
+}
+//通知客户端做数据变更的具体数据信息
+message FrameSyncData{
+    optional SyncMechaInfo  syncObj = 4 ;//帧同步数据对象信息
+    optional FrameSyncDataType  frameSyncDataType= 1 ;//帧同步数据类型
+    optional bytes frameSyncBytes= 2 ; //具体同步对象的pb字节数组
+}
+
+//通知客户端做数据变更的具体信息数组
+message FrameSyncDataArray{
+    optional float deltaTimeFloat= 15 ; //距离上一帧的时间差值，以秒为单位,客户端帧间时差以这个为准来运算
+    optional int64 totalTime = 8 [default = 0]; //战斗持续的总时间，单位毫秒
+    optional int32 randomSeed = 9 [default = 0];//同步随机数种子
+    optional SyncMechaInfo syncObj = 5; //客户端上报的时候填这里，可以不填同步数据信息内的，节省网络带宽
+    optional int32 pkSessionId= 3 [default = 0]; //战斗sessionId
+    optional int32 frameIndex= 2 [default = 0]; //战斗服务器同步的服务器帧id，客户端上报时则表示是客户端收到过的服务器最近一次帧id
+    optional int32 clientSeq= 4 [default = 0]; //客户端上报专用的本地帧序号，用于服务器过滤重复帧或旧帧
+    repeated FrameSyncData  syncs= 1 ;//0到多个同步数据信息
+    repeated StringStringKeyValue playerAI = 13;//key：掉线转AI的玩家playerId@zoneId;value：负责跑该AI的玩家playerId@zoneId
+    repeated IntStringKeyValue npcAI = 14;//key:需要跑ai的小怪id除以5得到的余数，即01234;value:负责跑这些小怪AI的玩家玩家playerId@zoneId
+}
+
+message IntStringKeyValue{
+    required int32 key = 1 [default = 0]; //键值对的整数Key
+    required string value = 2 [default = ""]; //键值对的字符串Value
+}
+
+message StringStringKeyValue{
+    required string key = 1 [default = ""]; //键值对的字符串Key
+    required string value = 2 [default = ""]; //键值对的字符串Value
+}
