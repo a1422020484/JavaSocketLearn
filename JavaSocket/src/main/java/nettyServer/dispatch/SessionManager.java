@@ -434,12 +434,7 @@ public final class SessionManager implements ApplicationContextAware {
 
 	private static ScheduledExecutorService scheduleLoop = Executors.newSingleThreadScheduledExecutor(new GameThreadFactory("session monitor"));
 
-	private static Runnable monitorRunnable = new Runnable() {
-		@Override
-		public void run() {
-			SessionManager.checkTimeout();
-		}
-	};
+	private static Runnable monitorRunnable = () -> SessionManager.checkTimeout();
 
 	public static void stopMonitor() {
 		scheduleLoop.shutdownNow();

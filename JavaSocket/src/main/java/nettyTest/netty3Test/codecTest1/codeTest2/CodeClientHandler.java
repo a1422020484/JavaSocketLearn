@@ -39,7 +39,7 @@ public class CodeClientHandler extends ChannelInboundHandlerAdapter {
 //		ByteBuf msgByteBuf = (ByteBuf) msg;
 		Integer msgInteger = (Integer) msg;
 		System.out.println("服务器端接收到的客户端的数字是" + msgInteger);
-
+		System.out.println("client" + ctx.channel().id().asLongText());
 		System.out.println("服务器向客户端写入整型数字 String 2001");
 		ctx.writeAndFlush(new Integer(2001));
 		ctx.close();
