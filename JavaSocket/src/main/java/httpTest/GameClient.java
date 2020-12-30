@@ -12,8 +12,6 @@ import com.google.protobuf.MessageLite;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import nettyServer.util.MsgUtils;
-import nettyServer.util.RSAUtils;
 
 public class GameClient {
 

@@ -196,7 +196,7 @@ public class PkSession {
                 Framesync.SyncMechaInfo smi = Framesync.SyncMechaInfo.newBuilder().setZoneId(pkPlayer.getZoneId())
                         .setPlayerId(pkPlayer.getPlayerId()).build();
                 fsdab.setFrameIndex(0).setPkSessionId(sessionId).setSyncObj(smi);
-                FrameSyncData fsd = FrameSyncDataUtil.getFrameSyncData(
+                Framesync.FrameSyncData fsd = FrameSyncDataUtil.getFrameSyncData(
                         FrameSyncStartData.newBuilder().setPosition(UnityVector3.newBuilder().setX(0).setY(0).setZ(0)));
                 fsdab.addSyncs(fsd);
                 cachedOpList.add(fsdab.build());

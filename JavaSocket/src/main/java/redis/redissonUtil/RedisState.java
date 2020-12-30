@@ -2,8 +2,6 @@ package redis.redissonUtil;
 
 import java.util.Date;
 
-import nettyServer.util.GameUtils;
-
 /**
  * @author xiezuojie
  */
@@ -25,7 +23,7 @@ public class RedisState {
     }
 
     private void changeState(String st) {
-        serverId = GameUtils.ServerId;
+//        serverId = GameUtils.ServerId;
         state = st;
         time = new Date();
     }
