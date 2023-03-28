@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import xzj.core.util.Tool;
 
 
 /**
@@ -68,7 +67,8 @@ public final class CoreConfig {
 	 */
 	private static <T> T get(String key, Class<T> clazz) {
 		String value = res.get(key);
-		return Tool.convertBaseType(value, clazz);
+		return null;
+//		return Tool.convertBaseType(value, clazz);
 	}
 
 	/**

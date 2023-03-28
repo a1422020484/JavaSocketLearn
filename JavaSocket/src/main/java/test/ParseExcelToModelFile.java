@@ -98,7 +98,7 @@ public class ParseExcelToModelFile {
             if (xssfSheet == null) {
                 return;
             }
-            modelClassName = ToStringUtils.toUpperCase4Index(xssfSheet.getSheetName());
+           // modelClassName = ToStringUtils.toUpperCase4Index(xssfSheet.getSheetName());
             int rowNum = xssfSheet.getLastRowNum();
             if (rowNum > READ_ROW) {
                 rowNum = READ_ROW;
@@ -150,7 +150,7 @@ public class ParseExcelToModelFile {
                 if (!xssfSheet.getSheetName().equalsIgnoreCase(sheetName)) {
                     continue;
                 }
-                modelClassName = ToStringUtils.toUpperCase4Index(xssfSheet.getSheetName());
+                //modelClassName = ToStringUtils.toUpperCase4Index(xssfSheet.getSheetName());
                 int rowNum = xssfSheet.getLastRowNum();
                 if (rowNum > READ_ROW) {
                     rowNum = READ_ROW;
@@ -226,7 +226,7 @@ public class ParseExcelToModelFile {
                 writer.write(str2 + "*/" + str3);
                 // 属性
                 if (modelType.get(i).equals("string")) {
-                    writer.write(str2 + "private" + str2 + ToStringUtils.toUpperCase4Index(modelType.get(i)) + str2 + modelName.get(i) + ";" + str3);
+                    //writer.write(str2 + "private" + str2 + ToStringUtils.toUpperCase4Index(modelType.get(i)) + str2 + modelName.get(i) + ";" + str3);
                 } else {
                     writer.write(str2 + "private" + str2 + modelType.get(i) + str2 + modelName.get(i) + ";" + str3);
                 }

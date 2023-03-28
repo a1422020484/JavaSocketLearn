@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="DEBUG" monitorInterval="30">
+
+    <properties>
+        <property name="LOG_HOME">log/${sys:appName}</property>
+        <property name="LOG_BIZ_HOME">log/biz</property>
+        <property name="ERROR_LOG_FILE_NAME">error.log</property>
+        <property name="WARN_LOG_FILE_NAME">warn.log</property>
+        <property name="INFO_LOG_FILE_NAME">info.log</property>
+        <property name="DEBUG_LOG_FILE_NAME">debug.log</property>
+        <property name="TASK_TIME_LOG_FILE_NAME">taskTime.log</property>
+        <property name="SQL_LOG_FILE_NAME">sql.log</property>
+        <property name="CMD_TIME_LOG_FILE_NAME">cmdTime.log</property>
+        <property name="CACHE_LOG_FILE_NAME">cache.log</property>
+        <property name="NET_LOG_FILE_NAME">net.log</property>
+        <property name="DEVOPS_LOG_FILE_NAME">devops.log</property>
+        <property name="BIZ_LOG_FILE_NAME">biz.log</property>
+        <property name="FILE_PATTERN">zip-log/%d{yyyyMMddHHmmss}.gz</property>
+        <property name="BIZ_FILE_PATTERN">biz.%i.log</property>
+        <property name="LAYOUT_PATTERN">%date{yyyy-MM-dd HH:mm:ss.SSS} %level [${sys:logInfo}][%thread][%file:%line] - %msg%n</property>
+        <property name="FILE_SIZE">100 MB</property>
+        <property name="BIZ_FILE_SIZE">10 MB</property>
+    </properties>
+
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="DEBUG" fileName="${LOG_HOME}/${DEBUG_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${DEBUG_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <Filters>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="INFO" fileName="${LOG_HOME}/${INFO_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${INFO_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="WARN" fileName="${LOG_HOME}/${WARN_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${WARN_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="ERROR" fileName="${LOG_HOME}/${ERROR_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${ERROR_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="TASK_TIME" fileName="${LOG_HOME}/${TASK_TIME_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${TASK_TIME_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+
+        <RollingFile name="CMD_TIME" fileName="${LOG_HOME}/${CMD_TIME_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${CMD_TIME_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="SQL" fileName="${LOG_HOME}/${SQL_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${SQL_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+        <RollingFile name="CACHE" fileName="${LOG_HOME}/${CACHE_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${CACHE_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <PatternLayout pattern="${LAYOUT_PATTERN}"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+
+        <RollingFile name="NET" fileName="${LOG_HOME}/${NET_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${NET_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %msg%n"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="DEVOPS" fileName="${LOG_HOME}/${DEVOPS_LOG_FILE_NAME}"
+                     filePattern="${LOG_HOME}/${DEVOPS_LOG_FILE_NAME}.${FILE_PATTERN}" append="true">
+            <PatternLayout pattern="%msg%n"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+
+        <RollingFile name="BIZ" fileName="${LOG_BIZ_HOME}/${BIZ_LOG_FILE_NAME}"
+                     filePattern="${LOG_BIZ_HOME}/${BIZ_FILE_PATTERN}" append="true">
+            <PatternLayout pattern="%date{yyyy-MM-dd'T'HH:mm:ssXXX}--%msg%n"/>
+            <Policies>
+                <!-- TimeBasedTriggeringPolicy modulate="true" interval="24" /-->
+                <SizeBasedTriggeringPolicy size="${BIZ_FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="200"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <logger name="TASK_TIME" level="debug" additivity="false">
+            <appender-ref ref="TASK_TIME"/>
+        </logger>
+        <logger name="CACHE" level="debug" additivity="false">
+            <appender-ref ref="CACHE"/>
+        </logger>
+        <logger name="CMD_TIME" level="debug" additivity="false">
+            <appender-ref ref="CMD_TIME"/>
+        </logger>
+        <logger name="SQL" level="debug" additivity="false">
+
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <logger name="NET" level="error" additivity="false">
+<!--            <appender-ref ref="NET"/>-->
+        </logger>
+
+        <logger name="DEVOPS" level="debug" additivity="false">
+            <appender-ref ref="DEVOPS"/>
+        </logger>
+
+        <logger name="BIZ" level="debug" additivity="false">
+            <appender-ref ref="BIZ"/>
+        </logger>
+
+        <logger name="com.alibaba.druid.pool.DruidDataSourceStatLoggerImpl" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="com.alibaba.druid.pool.PreparedStatementPool" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="druid.sql" level="debug" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="io.netty" level="fatal" additivity="false">
+            <appender-ref ref="NET"/>
+        </logger>
+
+        <logger name="com.aliyun.oss" level="info" additivity="false"/>
+
+        <logger name="org.apache.http" level="info" additivity="false"/>
+
+        <logger name="org.springframework.data.redis" level="info" additivity="false">
+            <appender-ref ref="CACHE"/>
+        </logger>
+
+        <root level="info" includeLocation="true" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="DEBUG"/>
+            <appender-ref ref="INFO"/>
+            <appender-ref ref="WARN"/>
+            <appender-ref ref="ERROR"/>
+        </root>
+
+    </Loggers>
+
+</Configuration>

@@ -15,7 +15,7 @@ import io.netty.util.CharsetUtil;
 
 public class FileServer {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		int port = 8080;
 		if (args.length > 0) {
 			try {

@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MatchTask {
 
+    public static int max = 1000;
+    public static int min  = 10;
     private static Logger log = LogManager.getLogger("PkSessionManager");
 
     /**

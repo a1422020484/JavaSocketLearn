@@ -19,8 +19,8 @@ public class RSAUtils {
 		try {
 //			publicKeyBytes = RSAKeys.decryptBASE64(CoreConfig.stringValue("SystemPublicKey"));
 //			privateKeyBytes = RSAKeys.decryptBASE64(CoreConfig.stringValue("SystemPrivateKey"));
-			publicKeyBytes = RSAKeys.decryptBASE64("test");
-			privateKeyBytes = RSAKeys.decryptBASE64("123456");
+			/*publicKeyBytes = RSAKeys.decryptBASE64("test");
+			privateKeyBytes = RSAKeys.decryptBASE64("123456");*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -81,7 +81,8 @@ public class RSAUtils {
 //		System.out.println("encryptFront>>" + Arrays.toString(encryptFront));
 		
 		PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
-		KeyFactory keyFactory = KeyFactory.getInstance(RSAKeys.KEY_ALGORITHM);
+		//KeyFactory keyFactory = KeyFactory.getInstance(RSAKeys.KEY_ALGORITHM);
+		KeyFactory keyFactory = KeyFactory.getInstance("tsdatsd");
 		Key privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
 		Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -118,7 +119,8 @@ public class RSAUtils {
 		}
 //		System.out.println("front>" + Arrays.toString(front));
 		X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(publicKeyBytes);
-		KeyFactory keyFactory = KeyFactory.getInstance(RSAKeys.KEY_ALGORITHM);
+		//KeyFactory keyFactory = KeyFactory.getInstance(RSAKeys.KEY_ALGORITHM);
+		KeyFactory keyFactory = KeyFactory.getInstance("tsdatsd");
 		Key publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
 		Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
