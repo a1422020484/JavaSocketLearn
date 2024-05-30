@@ -62,4 +62,12 @@ public class MyRequest {
 		this.paramMap = paramMap;
 	}
 
+	@Override
+	public String toString() {
+		return "MyRequest{" +
+				"url='" + url + '\'' +
+				", method='" + method + '\'' +
+				", paramMap=" + paramMap +
+				'}';
+	}
 }
